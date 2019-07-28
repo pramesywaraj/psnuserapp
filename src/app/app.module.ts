@@ -13,12 +13,14 @@ import { MatListModule } from '@angular/material/list';
 
 import { HeaderComponent } from './components/header/header.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AdminComponent
+    AdminComponent,
+    SidemenuComponent
   ],
   imports: [
     BrowserModule,

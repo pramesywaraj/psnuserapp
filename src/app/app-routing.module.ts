@@ -9,6 +9,10 @@ const routes: Routes = [
     redirectTo: '/admin',
     pathMatch: 'full'
   },
+  // {
+  //   path: '/login',
+  //   component: 
+  // },
   {
     path: 'admin',
     component: AdminComponent

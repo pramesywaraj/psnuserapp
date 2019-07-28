@@ -1,0 +1,30 @@
+.sidemenu {
+    width: 250px;
+    mat-nav-list {
+        a {
+            text-decoration: none;
+        }
+        .nav-caption {
+            display: inline-block;
+            padding-left: 10px;
+        }
+    }
+
+    .sidemenu-footer {
+        position: absolute;
+        position: -webkit-absolute;
+        bottom: 0;
+        z-index: 1000;
+        text-align: center;
+        p {
+            font-size: 10px;
+            mat-icon {
+                font-size: 10px;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+}
