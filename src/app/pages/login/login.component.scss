@@ -1,0 +1,30 @@
+.login-container {
+    padding: 30px;
+
+    mat-card {
+        width: 30%;
+        margin: auto;
+        mat-card-content {
+            padding-top: 10px;
+
+            .login-form_hidebutton {
+                cursor: pointer;
+            }
+        }
+
+        mat-card-header {
+            display: block;
+            color: #3f51b5;
+        }
+        
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+
+        * {
+            width: 100%;
+        }
+    }
+}
