@@ -1,33 +1,30 @@
 <div class="sidemenu">
   <mat-toolbar color="primary">PSN Admin App</mat-toolbar>
-  <mat-nav-list>
-    <a mat-list-item class="active-list-item">
+  <mat-nav-list>    
+    <a mat-list-item class="active-list-item" routerLink="/admin/beranda">
       <mat-icon>home</mat-icon>
       <span class="nav-caption">Beranda</span>
     </a>
-    <a mat-list-item>
+    <a mat-list-item routerLink="/admin/daftarpeserta">
       <mat-icon>school</mat-icon>
-      <span class="nav-caption">Daftar Sekolah</span>
+      <span class="nav-caption">Tambahkan Siswa & Guru</span>
     </a>
-    <a mat-list-item>
+    <a mat-list-item routerLink="/admin/daftarlomba">
       <mat-icon>stars</mat-icon>
-      <span class="nav-caption">Perlombaan</span>
+      <span class="nav-caption">Daftar Lomba</span>
     </a>
-    <a mat-list-item>
+
+    <a mat-list-item routerLink="/admin/finalisasi">
       <mat-icon>airline_seat_individual_suite</mat-icon>
-      <span class="nav-caption">Penginapan</span>
+      <span class="nav-caption">Finalisasi</span>
     </a>
-    <a mat-list-item>
+    <a mat-list-item routerLink="/admin/pembayaran">
       <mat-icon>supervised_user_circle</mat-icon>
-      <span class="nav-caption">Media Partner</span>
-    </a>
-    <a mat-list-item>
-      <mat-icon>collections</mat-icon>
-      <span class="nav-caption">Gallery</span>
+      <span class="nav-caption">Pembayaran</span>
     </a>
   </mat-nav-list>
   <mat-toolbar class="sidemenu-footer" color="primary">
-    <p>Made with <mat-icon>favorite</mat-icon> by <a href="https://www.codepanda.id">Codepanda</a></p>
+    <p>Made with <mat-icon>favorite</mat-icon> by <a target="_blank" href="https://www.codepanda.id">Codepanda</a></p>
   </mat-toolbar>
 </div>
 

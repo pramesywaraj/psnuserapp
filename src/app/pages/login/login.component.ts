@@ -17,9 +17,7 @@ export class LoginComponent implements OnInit {
   }
 
   getErrorMessage() {
-    return this.email.hasError('required') ? 'Anda belum memasukkan email.' :
-        this.email.hasError('email') ? 'Masukkan Anda tidak sesuai dengan format email.' :
-            '';
+    return this.email.hasError('required') ? 'Anda belum memasukkan email.' : this.email.hasError('email') ? 'Masukkan Anda tidak sesuai dengan format email.' : '';
   }
 
 }

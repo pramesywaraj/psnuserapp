@@ -15,12 +15,19 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
 
 
 import { HeaderComponent } from './components/header/header.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
 import { LoginComponent } from './pages/login/login.component';
+import { BerandaComponent } from './pages/admin/beranda/beranda.component';
+import { DaftarpesertaComponent } from './pages/admin/daftarpeserta/daftarpeserta.component';
+import { DaftarlombaComponent } from './pages/admin/daftarlomba/daftarlomba.component';
+import { FinalisasiComponent } from './pages/admin/finalisasi/finalisasi.component';
+import { PembayaranComponent } from './pages/admin/pembayaran/pembayaran.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +36,11 @@ import { LoginComponent } from './pages/login/login.component';
     AdminComponent,
     SidemenuComponent,
     LoginComponent,
+    BerandaComponent,
+    DaftarpesertaComponent,
+    DaftarlombaComponent,
+    FinalisasiComponent,
+    PembayaranComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +55,9 @@ import { LoginComponent } from './pages/login/login.component';
     MatListModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,23 @@
+#psn-peserta{
+    overflow: auto;
+    .container{
+        width: 80vw;
+        margin: 2vh auto;
+        padding-left: auto;
+        padding-right: auto;
+
+        .card-grid{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            mat-card{
+                width: 75vw;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+        }
+    }
+}
