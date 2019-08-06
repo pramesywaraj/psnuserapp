@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material';
 
 
 import { HeaderComponent } from './components/header/header.component';
@@ -57,7 +58,8 @@ import { PembayaranComponent } from './pages/admin/pembayaran/pembayaran.compone
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,23 +1,45 @@
 #psn-peserta{
     overflow: auto;
-    .container{
-        width: 80vw;
-        margin: 2vh auto;
-        padding-left: auto;
-        padding-right: auto;
+}
 
-        .card-grid{
-            display: flex;
-            justify-content: center;
-            align-items: center;
+#psn-peserta .container{
+    width: 80vw;
+    margin: 2vh auto;
+    padding-left: auto;
+    padding-right: auto;
+}
 
-            mat-card{
-                width: 75vw;
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-            }
-    
-        }
-    }
+#psn-peserta .title{
+    padding-top: 3vh;
+    text-align: center;
+}
+
+#psn-peserta .form-guru{
+    width: 100vw;
+}
+
+#psn-peserta .form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#psn-peserta .submit-button{
+    width: 20vw;
+    height: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+    background: none;
+    border: solid 2px #3f51b5;
+}
+
+#psn-peserta .submit-button:hover{
+    background-color: #3f51b5;
+    color: aliceblue;
+    transition: 0.5s;
+}
+
+#psn-peserta .submit-button span{
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    font-size: 1.5em;
 }

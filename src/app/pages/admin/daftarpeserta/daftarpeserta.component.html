@@ -11,7 +11,7 @@
           <mat-tab label="List Murid & Guru"> 
             <!-- Card Start -->
             <mat-card>
-              <mat-card-title>
+              <mat-card-title class="title">
                 Daftar Murid dan Guru Pendamping
               </mat-card-title>
 
@@ -24,10 +24,27 @@
           <mat-tab label="Tambahkan Guru Pendamping"> 
             <!-- Card Start -->
             <mat-card>
-              <mat-card-title>
+              <mat-card-title class="title">
                 Tambahkan Guru Pendamping
               </mat-card-title>
-              Simple card
+
+              <form [formGroup]="daftarGuru" (ngSubmit)="postGuru()">
+                <div class="form-container">
+                  <mat-form-field>
+                    <input class="input-form" formControlName="name" matInput placeholder="Nama">
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="email" matInput placeholder="Email">
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="phone" matInput placeholder="Nomor Telepon">
+                  </mat-form-field>              
+                  <button [disabled]="!daftarGuru.valid" class="submit-button" type="submit">
+                    <span>Tambahkan Guru</span>
+                  </button>
+                </div>    
+              </form>
+              
             </mat-card>    
             <!-- Card End -->
           </mat-tab>
@@ -37,10 +54,27 @@
           <mat-tab label="Tambahkan Murid"> 
             <!-- Card Start -->
             <mat-card>
-              <mat-card-title>
+              <mat-card-title class="title">
                 Tambahkan Murid
               </mat-card-title>
-              Simple card
+
+              <form [formGroup]="daftarMurid" (ngSubmit)="postMurid()">
+                <div class="form-container">
+                  <mat-form-field>
+                    <input class="input-form" formControlName="name" matInput placeholder="Nama">
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="email" matInput placeholder="Email">
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="phone" matInput placeholder="Nomor Telepon">
+                  </mat-form-field>              
+                  <button [disabled]="!daftarMurid.valid" class="submit-button" type="submit">
+                    <span>Tambahkan Murid</span>
+                  </button>
+                </div>    
+              </form>
+
             </mat-card>    
             <!-- Card End -->
           </mat-tab>

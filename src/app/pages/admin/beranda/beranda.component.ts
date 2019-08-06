@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BerandaComponent implements OnInit {
 
-  constructor() { }
+  status: boolean;
+
+  constructor() { 
+    this.status = false;
+  }
 
   ngOnInit() {
   }

@@ -1,0 +1,74 @@
+#beranda{
+    margin: 3vh;
+    min-height: 100vh;
+}
+
+#beranda .title{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    color: #33b5e5;
+    transform: translateY(2vh);
+}
+
+#beranda .subtitle{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #212121;
+    transform: translateY(-2vh);
+}
+
+.row {
+	max-width: 940px;
+    margin: 0 auto;
+    padding: 1%;
+	display: flex;
+}
+
+.col{
+    flex-basis: 100%;
+}
+
+.col-6 { 
+    flex-basis: 50%; 
+}
+
+#beranda .status-card{
+    width: 25vw;
+    height: auto;
+}
+
+#beranda .banner-default{
+    background-color: #ff3547;
+    color: aliceblue;
+    text-align: center;
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#beranda .banner-default .title, #beranda .banner-default .subtitle{
+    color: aliceblue;
+}
+
+#beranda .banner-default .subtitle{
+    font-size: 1.3em;
+}
+
+#beranda .banner-registered{
+    background-color: #00c851;
+    color: aliceblue;
+    text-align: center;
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#beranda .banner-registered .title, #beranda .banner-registered .subtitle{
+    color: aliceblue;
+}
+
+#beranda .banner-registered .subtitle{
+    font-size: 1.3em;
+}

@@ -1,5 +1,73 @@
 <div id="beranda">
-  <p>
-    beranda works!
-  </p>
+  <div class="container">
+    <div class="row" *ngIf="!status">
+      <div class="col-6">
+        <mat-card class="banner-default">
+          <span class="title">
+            <i class="fas fa-times"></i>
+          </span>
+          <p class="subtitle">Status anda saat ini belum terdaftar karena belum menyelesaikan tahap pembayaran</p>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="status">
+      <div class="col-6">
+        <mat-card class="banner-registered">
+          <span class="title">
+            <i class="fas fa-check"></i>
+          </span>
+          <p class="subtitle">Selamat anda telah menyelesaikan pendaftaran</p>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <mat-card class="status-card">
+          <p class="title" style="color: #ff3547;">Belum Terdaftar</p>
+          <p class="subtitle">Status Pendaftaran</p>
+        </mat-card>
+      </div>
+      <div class="col-6">
+        <mat-card class="status-card">
+          <p class="title" style="color: #00c851">Rp. 500.000</p>
+          <p class="subtitle">Biaya Pendaftaran</p>
+        </mat-card>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-6">
+        <mat-card class="status-card">
+          <p class="title">16</p>
+          <p class="subtitle">Murid</p>
+        </mat-card>
+      </div>
+      <div class="col-6">
+        <mat-card class="status-card">
+          <p class="title">1</p>
+          <p class="subtitle">Guru Pendamping</p>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <mat-card class="status-card">
+          <p class="title">4</p>
+          <p class="subtitle">Tim Terdaftar</p>
+        </mat-card>
+      </div>
+      <div class="col-6">
+        <mat-card class="status-card">
+          <p class="title">4</p>
+          <p class="subtitle">Lomba yang diikuti</p>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
 </div>

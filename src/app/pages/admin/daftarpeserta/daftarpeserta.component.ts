@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -8,10 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DaftarpesertaComponent implements OnInit {
   
-  constructor() { 
+  daftarMurid: FormGroup;
+  daftarGuru: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { 
+    this.daftarMurid = this.formBuilder.group(
+      {
+        name : [""],
+        email : [""],
+        phone : [""],
+      }
+    );
+
+    this.daftarGuru = this.formBuilder.group(
+      {
+        name : [""],
+        email : [""],
+        phone : [""],
+      }
+    );
   }
 
   ngOnInit() {
+  }
+  
+  postGuru(){
+    console.log("Daftar Guru")
+  }
+
+  postMurid(){
+    console.log("Daftar Murid")
   }
 
 }

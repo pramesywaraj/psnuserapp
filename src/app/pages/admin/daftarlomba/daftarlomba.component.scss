@@ -1,0 +1,45 @@
+#psn-lomba{
+    overflow: auto;
+}
+
+#psn-lomba .container{
+    width: 80vw;
+    margin: 2vh auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+#psn-lomba .title{
+    padding-top: 3vh;
+    text-align: center;
+}
+
+#psn-lomba .form-guru{
+    width: 100vw;
+}
+
+#psn-lomba .form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#psn-lomba .submit-button{
+    width: 20vw;
+    height: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+    background: none;
+    border: solid 2px #3f51b5;
+}
+
+#psn-lomba .submit-button:hover{
+    background-color: #3f51b5;
+    color: aliceblue;
+    transition: 0.5s;
+}
+
+#psn-lomba .submit-button span{
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    font-size: 1.5em;
+}

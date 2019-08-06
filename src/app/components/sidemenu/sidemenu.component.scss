@@ -1,5 +1,11 @@
 .sidemenu {
     width: 250px;
+    .icon{
+        i{
+            font-size: 1.3em;
+        }
+    }
+
     mat-nav-list {
         a {
             text-decoration: none;
