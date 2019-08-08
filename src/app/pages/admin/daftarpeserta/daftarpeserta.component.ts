@@ -10,7 +10,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class DaftarpesertaComponent implements OnInit {
   
   daftarMurid: FormGroup;
-  daftarGuru: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { 
     this.daftarMurid = this.formBuilder.group(
@@ -21,22 +20,11 @@ export class DaftarpesertaComponent implements OnInit {
       }
     );
 
-    this.daftarGuru = this.formBuilder.group(
-      {
-        name : [""],
-        email : [""],
-        phone : [""],
-      }
-    );
   }
 
   ngOnInit() {
   }
   
-  postGuru(){
-    console.log("Daftar Guru")
-  }
-
   postMurid(){
     console.log("Daftar Murid")
   }

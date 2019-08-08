@@ -6,8 +6,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { BerandaComponent } from './pages/admin/beranda/beranda.component';
 import { DaftarpesertaComponent } from './pages/admin/daftarpeserta/daftarpeserta.component';
 import { DaftarlombaComponent } from './pages/admin/daftarlomba/daftarlomba.component';
-import { FinalisasiComponent } from './pages/admin/finalisasi/finalisasi.component';
 import { PembayaranComponent } from './pages/admin/pembayaran/pembayaran.component';
+import { PenginapanComponent } from './pages/admin/penginapan/penginapan.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { DaftarguruComponent } from './pages/admin/daftarguru/daftarguru.component';
+import { DaftartimComponent } from './pages/admin/daftartim/daftartim.component';
 
 const routes: Routes = [
   {
@@ -20,6 +23,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'registration',
+    component: RegistrationComponent
+  },
+  {
     path: 'admin',
     component: AdminComponent,
 
@@ -27,6 +34,10 @@ const routes: Routes = [
       {
         path: 'beranda',
         component: BerandaComponent,
+      },
+      {
+        path: 'daftarguru',
+        component: DaftarguruComponent,
       },
       {
         path: 'daftarpeserta',
@@ -37,8 +48,12 @@ const routes: Routes = [
         component: DaftarlombaComponent,
       },
       {
-        path: 'finalisasi',
-        component: FinalisasiComponent,
+        path: 'daftartim',
+        component: DaftartimComponent,
+      },
+      {
+        path: 'daftarpenginapan',
+        component: PenginapanComponent,
       },
       {
         path: 'pembayaran',

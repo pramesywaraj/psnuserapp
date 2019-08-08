@@ -1,33 +1,29 @@
-#psn-peserta{
+#psn-guru{
     overflow: auto;
 }
 
-#psn-peserta .container{
+#psn-guru .container{
     width: 80vw;
     margin: 2vh auto;
     padding-left: auto;
     padding-right: auto;
 }
 
-#psn-peserta .title{
+#psn-guru .title{
     padding-top: 3vh;
     text-align: center;
 }
 
-#psn-peserta table {
-    width: 100%;
-}  
-
-#psn-peserta .form-guru{
+#psn-guru .form-guru{
     width: 100vw;
 }
 
-#psn-peserta .form-container {
+#psn-guru .form-container {
     display: flex;
     flex-direction: column;
 }
 
-#psn-peserta .submit-button{
+#psn-guru .submit-button{
     width: 20vw;
     height: 7vh;
     margin-left: auto;
@@ -36,13 +32,13 @@
     border: solid 2px #3f51b5;
 }
 
-#psn-peserta .submit-button:hover{
+#psn-guru .submit-button:hover{
     background-color: #3f51b5;
     color: aliceblue;
     transition: 0.5s;
 }
 
-#psn-peserta .submit-button span{
+#psn-guru .submit-button span{
     padding-top: 3vh;
     padding-bottom: 3vh;
     font-size: 1.5em;

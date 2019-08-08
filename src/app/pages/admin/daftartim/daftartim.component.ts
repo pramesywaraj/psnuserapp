@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-daftarlomba',
-  templateUrl: './daftarlomba.component.html',
-  styleUrls: ['./daftarlomba.component.scss']
+  selector: 'app-daftartim',
+  templateUrl: './daftartim.component.html',
+  styleUrls: ['./daftartim.component.scss']
 })
-export class DaftarlombaComponent implements OnInit {
+export class DaftartimComponent implements OnInit {
 
   daftarTeam: FormGroup;
   students: Array<any>;

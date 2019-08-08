@@ -1,23 +1,31 @@
 <div class="sidemenu">
   <mat-toolbar color="primary">PSN Admin App</mat-toolbar>
   <mat-nav-list class="icon">    
-    <a mat-list-item class="active-list-item" routerLink="/admin/beranda">
+    <!-- <a mat-list-item class="active-list-item" routerLink="/admin/beranda">
       <i class="fas fa-home"></i>
       <span class="nav-caption">Beranda</span>
+    </a> -->
+    <a mat-list-item routerLink="/admin/daftarlomba">
+      <i class="fas fa-medal"></i>
+      <span class="nav-caption">Lomba Tersedia</span>
+    </a>
+    <a mat-list-item routerLink="/admin/daftarguru">
+      <i class="fas fa-chalkboard-teacher"></i>
+      <span class="nav-caption">Tambahkan Pendamping</span>
     </a>
     <a mat-list-item routerLink="/admin/daftarpeserta">
       <i class="fas fa-user-graduate"></i>
-      <span class="nav-caption">Tambahkan Siswa & Guru</span>
-    </a>
-    <a mat-list-item routerLink="/admin/daftarlomba">
-      <i class="fas fa-medal"></i>
-      <span class="nav-caption">Daftar Lomba</span>
+      <span class="nav-caption">Tambahkan Peserta</span>
     </a>
 
-    <a mat-list-item routerLink="/admin/finalisasi">
-      <i class="fas fa-stamp"></i>
-      <span class="nav-caption">Finalisasi</span>
+    <a mat-list-item routerLink="/admin/daftartim">
+      <i class="fas fa-users"></i>
+      <span class="nav-caption">Daftar Tim</span>
     </a>
+    <!-- <a mat-list-item routerLink="/admin/daftarpenginapan">
+      <i class="fas fa-building"></i>
+      <span class="nav-caption">Daftar Penginapan</span>
+    </a> -->
     <a mat-list-item routerLink="/admin/pembayaran">
       <i class="fas fa-receipt"></i>
       <span class="nav-caption">Pembayaran</span>

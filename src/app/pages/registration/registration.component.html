@@ -1,0 +1,52 @@
+<!-- Registration Start -->
+
+<div id="psn-registration">
+  <div class="mask">
+    <div class="registration-container">
+      <mat-card class="card-position">
+        <mat-card-header>
+          <h2>registration</h2>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <div class="registration-form">
+            <mat-form-field>
+              <input matInput placeholder="Masukkan Nama Sekolah Anda" [formControl]="name" required>
+              <mat-error *ngIf="name.invalid">{{getErrorMessageName()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <textarea matInput placeholder="Masukkan Alamat Sekolah Anda" [formControl]="address" required></textarea>
+              <mat-error *ngIf="address.invalid">{{getErrorMessageAddress()}}</mat-error>
+            </mat-form-field>            
+            <mat-form-field>
+              <input matInput placeholder="Masukkan email Anda" [formControl]="email" required>
+              <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="number" placeholder="Masukkan Nomor Telepon Sekolah Anda" [formControl]="phone" required>
+              <mat-error *ngIf="phone.invalid">{{getErrorMessagePhone()}}</mat-error>
+            </mat-form-field>            
+            <mat-form-field>
+              <input matInput placeholder="Masukkan Username Anda" [formControl]="username" required>
+              <mat-error *ngIf="username.invalid">{{getErrorMessageUsername()}}</mat-error>
+            </mat-form-field>            
+            <mat-form-field>
+              <input matInput placeholder="Masukkan password Anda" [type]="hide ? 'password' : 'text'">
+              <mat-icon class="registration-form_hidebutton" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+            <a href="login">
+              <button mat-raised-button color="primary">Daftar</button>
+            </a>
+            <br>
+            <a href="login" style="text-align: center; padding-top: 3vh;">
+              Sudah punya akun? Masuk!
+            </a>
+          </div>
+          
+        </mat-card-content>
+      </mat-card>
+    </div>        
+  </div>
+</div>
+
+<!-- Registration End -->

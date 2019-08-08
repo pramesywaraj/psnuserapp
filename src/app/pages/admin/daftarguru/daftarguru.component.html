@@ -1,0 +1,65 @@
+
+
+<!-- Daftar guru Start -->
+<section id="psn-guru">
+  <div class="container">
+    <div class="card-grid">
+
+      <mat-card>
+        <mat-tab-group>
+          <!-- List Guru dan Murid Start -->
+          <mat-tab label="List Guru Pendamping"> 
+            <!-- Card Start -->
+            <mat-card>
+              <mat-card-title class="title">
+                Daftar Guru Pendamping
+              </mat-card-title>
+
+            </mat-card>    
+            <!-- Card End -->
+          </mat-tab>
+          <!-- Daftar Guru dan Murid End -->
+
+          <!-- Daftar Guru Pendamping Start -->
+          <mat-tab label="Tambahkan Guru Pendamping"> 
+            <!-- Card Start -->
+            <mat-card>
+              <mat-card-title class="title">
+                Tambahkan Guru Pendamping
+              </mat-card-title>
+
+              <form [formGroup]="daftarGuru" (ngSubmit)="postGuru()">
+                <div class="form-container">
+                  <mat-form-field>
+                    <input class="input-form" formControlName="name" matInput placeholder="Nama">
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="email" matInput placeholder="Email">
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="phone" matInput placeholder="Nomor Telepon">
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="nip" matInput placeholder="NIP">
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="school" matInput placeholder="School">
+                  </mat-form-field>              
+                  <button [disabled]="!daftarGuru.valid" class="submit-button" type="submit">
+                    <span>Tambahkan Guru</span>
+                  </button>
+                </div>    
+              </form>
+              
+            </mat-card>    
+            <!-- Card End -->
+          </mat-tab>
+          <!-- Daftar Guru Pendamping End -->
+
+        </mat-tab-group>
+      </mat-card>          
+      
+    </div>
+  </div>
+</section>
+<!-- Daftar guru End -->

@@ -29,6 +29,10 @@ import { DaftarpesertaComponent } from './pages/admin/daftarpeserta/daftarpesert
 import { DaftarlombaComponent } from './pages/admin/daftarlomba/daftarlomba.component';
 import { FinalisasiComponent } from './pages/admin/finalisasi/finalisasi.component';
 import { PembayaranComponent } from './pages/admin/pembayaran/pembayaran.component';
+import { PenginapanComponent } from './pages/admin/penginapan/penginapan.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { DaftarguruComponent } from './pages/admin/daftarguru/daftarguru.component';
+import { DaftartimComponent } from './pages/admin/daftartim/daftartim.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,10 @@ import { PembayaranComponent } from './pages/admin/pembayaran/pembayaran.compone
     DaftarlombaComponent,
     FinalisasiComponent,
     PembayaranComponent,
+    PenginapanComponent,
+    RegistrationComponent,
+    DaftarguruComponent,
+    DaftartimComponent,
   ],
   imports: [
     BrowserModule,

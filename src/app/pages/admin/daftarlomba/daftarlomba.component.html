@@ -12,7 +12,7 @@
             <!-- Card Start -->
             <mat-card>
               <mat-card-title class="title">
-                Daftar Lomba yang Diikutkan
+                Daftar Lomba Tersedia
               </mat-card-title>
 
             </mat-card>    
@@ -20,62 +20,6 @@
           </mat-tab>
           <!-- Daftar Guru dan Murid End -->
 
-          <!-- Daftar Guru Pendamping Start -->
-          <mat-tab label="Tambahkan Tim"> 
-            <!-- Card Start -->
-            <mat-card>
-              <mat-card-title class="title">
-                Tambahkan Tim
-              </mat-card-title>
-
-              <form [formGroup]="daftarTeam" (ngSubmit)="postTeam()">
-                <div class="form-container">
-                  <mat-form-field>
-                    <input class="input-form" formControlName="name" matInput placeholder="Nama Tim">
-                  </mat-form-field>              
-                  
-                  <mat-form-field>
-                    <mat-select placeholder="Pilih Lomba" formControlName="contest">
-                      <mat-option value="Metrix">Metrix</mat-option>
-                      <mat-option value="CPSC">CPSC</mat-option>
-                      <mat-option value="LKIP">LKIP</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                  
-                  <mat-form-field>
-                    <mat-select placeholder="Pilih Anggota 1" formControlName="studentA">
-                      <mat-option value="Adam">Adam</mat-option>
-                      <mat-option value="Pramesywara">Pramesywara</mat-option>
-                      <mat-option value="Rakish">Rakish</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-
-                  <mat-form-field>
-                    <mat-select placeholder="Pilih Anggota 2" formControlName="studentB">
-                      <mat-option value="Adam">Adam</mat-option>
-                      <mat-option value="Pramesywara">Pramesywara</mat-option>
-                      <mat-option value="Rakish">Rakish</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-
-                  <mat-form-field>
-                    <mat-select placeholder="Pilih Anggota 3" formControlName="studentC">
-                      <mat-option value="Adam">Adam</mat-option>
-                      <mat-option value="Pramesywara">Pramesywara</mat-option>
-                      <mat-option value="Rakish">Rakish</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-
-                  <button [disabled]="!daftarTeam.valid" class="submit-button" type="submit">
-                    <span>Tambahkan Team</span>
-                  </button>
-                </div>    
-              </form>
-              
-            </mat-card>    
-            <!-- Card End -->
-          </mat-tab>
-          <!-- Daftar Guru Pendamping End -->
         </mat-tab-group>
       </mat-card>          
       
