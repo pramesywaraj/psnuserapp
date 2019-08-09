@@ -1,11 +1,9 @@
 <mat-toolbar color="primary">
   <span class="navbar-spacer"></span>
   <div>
-    <a href="login">
-        <button mat-raised-button>
-          <mat-icon>exit_to_app</mat-icon>
-          <span>Keluar</span>
-        </button>
-    </a>
+    <button mat-raised-button (click)="logOut()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Keluar</span>
+    </button>
   </div>
 </mat-toolbar>

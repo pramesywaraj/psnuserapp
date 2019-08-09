@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RouteGuard } from './guards/route.guard';
 
 import { AdminComponent } from './pages/admin/admin.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [RouteGuard],
     component: AdminComponent,
 
     children: [

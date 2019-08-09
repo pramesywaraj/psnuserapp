@@ -23,7 +23,7 @@
               <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
             </mat-form-field>
             <mat-form-field>
-              <input matInput type="number" placeholder="Masukkan Nomor Telepon Sekolah Anda" [formControl]="phone" required>
+              <input matInput placeholder="Masukkan Nomor Telepon Sekolah Anda" [formControl]="phone" required>
               <mat-error *ngIf="phone.invalid">{{getErrorMessagePhone()}}</mat-error>
             </mat-form-field>            
             <mat-form-field>
@@ -31,12 +31,10 @@
               <mat-error *ngIf="username.invalid">{{getErrorMessageUsername()}}</mat-error>
             </mat-form-field>            
             <mat-form-field>
-              <input matInput placeholder="Masukkan password Anda" [type]="hide ? 'password' : 'text'">
+              <input matInput placeholder="Masukkan password Anda" [type]="hide ? 'password' : 'text'" [formControl]="password">
               <mat-icon class="registration-form_hidebutton" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </mat-form-field>
-            <a href="login">
-              <button mat-raised-button color="primary">Daftar</button>
-            </a>
+            <button mat-raised-button color="primary" (click)="postSchoolRegistration()">Daftar</button>
             <br>
             <a href="login" style="text-align: center; padding-top: 3vh;">
               Sudah punya akun? Masuk!
