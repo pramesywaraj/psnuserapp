@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { DaftarguruService } from 'src/app/services/daftarguru.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -10,18 +12,28 @@ import { DaftarguruService } from 'src/app/services/daftarguru.service';
 })
 export class DaftarguruComponent implements OnInit {
 
-  allGuru: [];
+  name = new FormControl('', [Validators.required]);
+  NIP = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);
+  phone = new FormControl('', [Validators.required]);
+
+  getAllGuru: [];
   daftarGuru: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, public DaftarguruService: DaftarguruService) {
-    this.getGuru('5d3f24bd5f5b93279877474e');
+  private subscription: Subscription;
+
+  displayedColumns: string[] = ['indexNumber', 'name', 'NIP', 'email', 'phone', 'edit', 'delete'];
+
+  constructor(private formBuilder: FormBuilder, public DaftarguruService: DaftarguruService, public router: Router) {
+    const schoolId = JSON.parse(localStorage.getItem('schoolId'));
+    this.getAllGuruBySchoolId(schoolId);
     this.daftarGuru = this.formBuilder.group(
       {
-        name : [""],
-        email : [""],
-        phone : [""],
-        nip : [""],
-        school : [""],
+        name : this.name,
+        NIP : this.NIP,
+        email : this.email,
+        phone : this.phone,
+        school: schoolId,
       }
     );
   }
@@ -29,13 +41,10 @@ export class DaftarguruComponent implements OnInit {
   ngOnInit() {
   }
   
-  getGuru(id){
+  getAllGuruBySchoolId(id){
     this.DaftarguruService.getAllDaftarGuru(id).subscribe(
       (data) => {
-        this.allGuru = data.teachers;
-        if(data.status == 200) {
-          console.log("Cek Data : ", this.allGuru);
-        }
+        this.getAllGuru = data.teachers;
       },
       err => {
         console.log("err", err);
@@ -44,4 +53,43 @@ export class DaftarguruComponent implements OnInit {
     )
   }
 
+  index(i){
+    return i+=1;
+  }
+
+  postTeachersRegistration() {
+    this.subscription = this.DaftarguruService.postTeachersRegistration(this.daftarGuru.value).subscribe((data) => {
+      alert("Pendaftaran berhasil");
+      window.location.reload();
+    },
+    err => {
+      console.log('err', err);
+      if (err.status === 500){
+        alert("Email atau username sudah terdaftar");
+      }
+      else if (err.status !== 500){
+        alert("Data anda Salah");
+      }
+    })
+  }  
+
+  ngOnDestroy() {
+    if(this.subscription) this.subscription.unsubscribe();
+  }
+
+  deleteItem(id){
+    this.subscription = this.DaftarguruService.deleteTeachers(id).subscribe((data) => {
+      alert("Guru Pendamping berhasil Dihapus");
+      window.location.reload();
+    },
+    err => {
+      console.log('err', err);
+      if (err.status === 500){
+        alert("Gagal Menghapus");
+      }
+      else if (err.status !== 500){
+        alert("Gagal Menghapus");
+      }
+    })
+  }
 }

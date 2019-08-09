@@ -14,6 +14,10 @@
     text-align: center;
 }
 
+#psn-guru table {
+    width: 100%;
+}  
+
 #psn-guru .form-guru{
     width: 100vw;
 }
@@ -42,4 +46,38 @@
     padding-top: 3vh;
     padding-bottom: 3vh;
     font-size: 1.5em;
+}
+
+#psn-guru .edit-button{
+    font-size: 1em;
+    width: 6vw;
+    height: 3vh;
+    background: none;
+    border: solid 1px #87f779;
+    color: #87f779;
+    border-radius: 10px;
+}
+
+#psn-guru .edit-button:hover{
+    background: #87f779;
+    color: aliceblue;
+
+    transition: 0.5s;
+}
+
+#psn-guru .delete-button{
+    font-size: 1em;
+    width: 6vw;
+    height: 3vh;
+    background: none;
+    border: solid 1px #f9787b;
+    color: #f9787b;
+    border-radius: 10px;
+}
+
+#psn-guru .delete-button:hover{
+    background: #f9787b;
+    color: aliceblue;
+
+    transition: 0.5s;
 }

@@ -15,6 +15,64 @@
                 Daftar Guru Pendamping
               </mat-card-title>
 
+              <br>
+
+              <table mat-table [dataSource]="getAllGuru" class="mat-elevation-z8">
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="indexNumber">
+                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                  <td mat-cell *matCellDef="let data; let i = index;"> {{index(i)}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Nama Guru Pendamping </th>
+                  <td mat-cell *matCellDef="let data"> {{data.name}} </td>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="NIP">
+                  <th mat-header-cell *matHeaderCellDef> NIP </th>
+                  <td mat-cell *matCellDef="let data"> <b>{{data.NIP}}</b></td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef> Email </th>
+                  <td mat-cell *matCellDef="let data"> <b>{{data.email}}</b></td>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="phone">
+                  <th mat-header-cell *matHeaderCellDef> Phone </th>
+                  <td mat-cell *matCellDef="let data"> <b>{{data.phone}}</b></td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="edit">
+                  <th mat-header-cell *matHeaderCellDef> Edit </th>
+                  <td mat-cell *matCellDef="let data"> 
+                    <button class="edit-button">
+                      <span>Edit</span>
+                    </button>
+                  </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="delete">
+                  <th mat-header-cell *matHeaderCellDef> Delete </th>
+                  <td mat-cell *matCellDef="let data"> 
+                    <button class="delete-button" (click)="deleteItem(data._id)">
+                      <span>Hapus</span>
+                    </button>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
             </mat-card>    
             <!-- Card End -->
           </mat-tab>
@@ -28,22 +86,19 @@
                 Tambahkan Guru Pendamping
               </mat-card-title>
 
-              <form [formGroup]="daftarGuru" (ngSubmit)="postGuru()">
+              <form [formGroup]="daftarGuru" (ngSubmit)="postTeachersRegistration()">
                 <div class="form-container">
                   <mat-form-field>
-                    <input class="input-form" formControlName="name" matInput placeholder="Nama">
+                    <input class="input-form" formControlName="name" matInput placeholder="Nama" [formControl]="name" required>
                   </mat-form-field>              
                   <mat-form-field>
-                    <input class="input-form" formControlName="email" matInput placeholder="Email">
+                    <input class="input-form" formControlName="NIP" matInput placeholder="NIP" [formControl]="NIP" required>
                   </mat-form-field>              
                   <mat-form-field>
-                    <input class="input-form" formControlName="phone" matInput placeholder="Nomor Telepon">
+                    <input class="input-form" formControlName="email" matInput placeholder="Email" [formControl]="email" required>
                   </mat-form-field>              
                   <mat-form-field>
-                    <input class="input-form" formControlName="nip" matInput placeholder="NIP">
-                  </mat-form-field>              
-                  <mat-form-field>
-                    <input class="input-form" formControlName="school" matInput placeholder="School">
+                    <input class="input-form" formControlName="phone" matInput placeholder="Nomor Telepon" [formControl]="phone" required>
                   </mat-form-field>              
                   <button [disabled]="!daftarGuru.valid" class="submit-button" type="submit">
                     <span>Tambahkan Guru</span>
