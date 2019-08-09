@@ -18,9 +18,9 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut(){
-    alert('Anda Berhasil Keluar');
     this.LoginService.logout();
-    this.router.navigate[('/login')];
+    alert("Anda berhasil Logout");
+    this.router.navigate(['/login']);
   }
 
 }
