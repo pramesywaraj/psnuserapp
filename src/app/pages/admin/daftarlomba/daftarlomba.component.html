@@ -20,7 +20,7 @@
               <table mat-table [dataSource]="daftarLomba" class="mat-elevation-z8">
               
                 <!-- Position Column -->
-                <ng-container matColumnDef="index">
+                <ng-container matColumnDef="indexNumber">
                   <th mat-header-cell *matHeaderCellDef> No. </th>
                   <td mat-cell *matCellDef="let data; let i = index"> {{indexing(i)}} </td>
                 </ng-container>
@@ -34,13 +34,13 @@
                 <!-- Weight Column -->
                 <ng-container matColumnDef="memberPerTeam">
                   <th mat-header-cell *matHeaderCellDef> Maksimal peserta dalam Tiap Tim </th>
-                  <td mat-cell *matCellDef="let data"> {{data.memberPerTeam}} </td>
+                  <td mat-cell *matCellDef="let data"> <b>{{data.memberPerTeam}}</b> Peserta</td>
                 </ng-container>
               
                 <!-- Symbol Column -->
                 <ng-container matColumnDef="maxTeam">
                   <th mat-header-cell *matHeaderCellDef> Sisa Kuota tersedia </th>
-                  <td mat-cell *matCellDef="let data"> {{teamQuota(data.maxTeam, data.registeredTeam)}} </td>
+                  <td mat-cell *matCellDef="let data"> <b>{{teamQuota(data.maxTeam, data.registeredTeam)}}</b> Tim</td>
                 </ng-container>
 
                 <!-- Symbol Column -->

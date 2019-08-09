@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { RegistrationService } from 'src/app/services/registration.service';
 
 @Component({
   selector: 'app-registration',
@@ -16,9 +19,46 @@ export class RegistrationComponent implements OnInit {
   password = new FormControl('', [Validators.required]);
   hide = true;
 
-  constructor() { }
+  schoolRegistration : FormGroup;
+
+  private subscription: Subscription;
+
+  constructor(private formBuilder: FormBuilder, public RegistrationService: RegistrationService,  public router: Router) {
+    this.schoolRegistration = formBuilder.group(
+      {
+        'name' : this.name,
+        'address': this.address,
+        'email' : this.email,
+        'phone' : this.phone,
+        'username' : this.username,
+        'password' : this.password,
+      }
+    );
+   }
 
   ngOnInit() {
+  }
+
+  postSchoolRegistration() {
+    this.subscription = this.RegistrationService.postSchoolRegistration(this.schoolRegistration.value).subscribe((data) => {
+      if (data.status === 201) {
+        alert("Pendaftaran berhasil");
+      }
+      this.router.navigate(['/login']);
+    },
+    err => {
+      console.log('err', err);
+      if (err.status === 500){
+        alert("Email atau username sudah terdaftar");
+      }
+      else if (err.status !== 500){
+        alert("Data anda Salah");
+      }
+    })
+  }  
+
+  ngOnDestroy() {
+    if(this.subscription) this.subscription.unsubscribe();
   }
 
   getErrorMessageName() {

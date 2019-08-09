@@ -11,16 +11,13 @@
         <mat-card-content>
           <div class="login-form">
             <mat-form-field>
-              <input matInput placeholder="Masukkan email Anda" [formControl]="email" required>
-              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              <input matInput placeholder="Masukkan Username Anda" [formControl]="username" required>
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="Masukkan password Anda" [type]="hide ? 'password' : 'text'">
+              <input matInput placeholder="Masukkan password Anda" [type]="hide ? 'password' : 'text'" [formControl]="password" required>
               <mat-icon class="login-form_hidebutton" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </mat-form-field>
-            <a href="admin/daftarlomba">
-              <button mat-raised-button color="primary">Masuk</button>
-            </a>
+            <button mat-raised-button color="primary" (click)="postLoginSchool()">Masuk</button>
             <br>
             <a href="registration" style="text-align: center; padding-top: 3vh;">
               Belum punya akun? Daftar Sekarang!

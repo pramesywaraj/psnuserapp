@@ -10,7 +10,7 @@ import { DaftarlombaService } from 'src/app/services/daftarlomba.service';
 })
 export class DaftarlombaComponent implements OnInit {
 
-  index: number;
+  indexNumber: number;
   name: any;
   memberPerTeam: number;
   maxTeam: number;
@@ -18,7 +18,7 @@ export class DaftarlombaComponent implements OnInit {
 
   daftarLomba = [];
 
-  displayedColumns: string[] = ['index', 'name', 'memberPerTeam', 'maxTeam', 'registrationStatus'];
+  displayedColumns: string[] = ['indexNumber', 'name', 'memberPerTeam', 'maxTeam', 'registrationStatus'];
 
   constructor(private formBuilder: FormBuilder, public DaftarlombaService: DaftarlombaService) { 
     this.getDaftarLomba();
@@ -34,7 +34,6 @@ export class DaftarlombaComponent implements OnInit {
         if(data.status == 200) {
           console.log("Cek Data : ", this.daftarLomba);
         }
-        console.log("Cek Data : ", this.daftarLomba);
       },
       err => {
         console.log("err", err);
