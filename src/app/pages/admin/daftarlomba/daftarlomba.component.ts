@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { DaftarlombaService } from 'src/app/services/daftarlomba.service';
+
 
 @Component({
   selector: 'app-daftarlomba',
@@ -8,30 +10,40 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class DaftarlombaComponent implements OnInit {
 
-  daftarTeam: FormGroup;
-  students: Array<any>;
+  index: number;
+  name: any;
+  memberPerTeam: number;
+  maxTeam: number;
+  status: string;
 
-  constructor(private formBuilder: FormBuilder) { 
-    this.daftarTeam = this.formBuilder.group(
-      {
-        name : [""],
-        contest : [""],
-        studentA : [""],
-        studentB : [""],
-        studentC : [""],
-      }
-    );
+  daftarLomba = [];
+
+  displayedColumns: string[] = ['index', 'name', 'memberPerTeam', 'maxTeam', 'registrationStatus'];
+
+  constructor(private formBuilder: FormBuilder, public DaftarlombaService: DaftarlombaService) { 
+    this.getDaftarLomba();
   }
 
   ngOnInit() {
   }
   
-  postTeam(){
-    console.log("Cek : ", this.daftarTeam)
+  getDaftarLomba(){
+    this.DaftarlombaService.getAllDaftarLomba().subscribe(
+      (data) => {
+        this.daftarLomba = data.contests;
+        if(data.status == 200) {
+          console.log("Cek Data : ", this.daftarLomba);
+        }
+        console.log("Cek Data : ", this.daftarLomba);
+      },
+      err => {
+        console.log("err", err);
+        // do a function here
+      }
+    )
   }
 
-  // postMurid(){
-  //   console.log("Daftar Murid")
-  // }
-
+  teamQuota(maxTeam, registeredTeam){
+    return maxTeam - registeredTeam;
+  }
 }

@@ -14,6 +14,10 @@
     text-align: center;
 }
 
+#psn-lomba table {
+    width: 100%;
+}  
+
 #psn-lomba .form-guru{
     width: 100vw;
 }
@@ -42,4 +46,16 @@
     padding-top: 3vh;
     padding-bottom: 3vh;
     font-size: 1.5em;
+}
+
+#psn-lomba .status-open{
+    color: #00C851;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+#psn-lomba .status-closed{
+    color: #ff4444;
+    font-size: 1.2em;
+    font-weight: 500;
 }
