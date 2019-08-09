@@ -47,7 +47,7 @@ export class DaftarlombaComponent implements OnInit {
     return maxTeam - registeredTeam;
   }
 
-  index(i){
+  indexing(i) {
     return i+=1;
   }
 }
