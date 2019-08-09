@@ -46,4 +46,8 @@ export class DaftarlombaComponent implements OnInit {
   teamQuota(maxTeam, registeredTeam){
     return maxTeam - registeredTeam;
   }
+
+  index(i){
+    return i+=1;
+  }
 }
