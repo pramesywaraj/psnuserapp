@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { DaftartimService } from 'src/app/services/daftartim.service';
 
 @Component({
   selector: 'app-daftartim',
@@ -8,17 +11,27 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class DaftartimComponent implements OnInit {
 
-  daftarTeam: FormGroup;
-  students: Array<any>;
+  name = new FormControl('', [Validators.required]);
+  contest = new FormControl('', [Validators.required]);
+  students = new FormControl('', [Validators.required]);
 
-  constructor(private formBuilder: FormBuilder) { 
+  getAllTeam: [];
+  daftarTeam: FormGroup;
+
+  private subscription: Subscription;
+
+  displayedColumns: string[] = ['indexNumber', 'name', 'contest', 'students', 'edit', 'delete'];
+
+  constructor(private formBuilder: FormBuilder, public DaftartimService: DaftartimService, public router: Router) { 
+    const schoolId = JSON.parse(localStorage.getItem('schoolId'));
+    this.getAllTeamBySchoolId(schoolId);
+    const dataLomba = JSON.parse(localStorage.getItem('dataLomba'));
+    this.contest = dataLomba;
     this.daftarTeam = this.formBuilder.group(
       {
-        name : [""],
-        contest : [""],
-        studentA : [""],
-        studentB : [""],
-        studentC : [""],
+        name : this.name,
+        contest : this.contest,
+        students : this.students,
       }
     );
   }
@@ -26,12 +39,65 @@ export class DaftartimComponent implements OnInit {
   ngOnInit() {
   }
   
-  postTeam(){
-    console.log("Cek : ", this.daftarTeam)
+  getAllTeamBySchoolId(id){
+    this.DaftartimService.getAllDaftarTim(id).subscribe(
+      (data) => {
+        this.getAllTeam = data.teams;
+        console.log("cek Data : ", this.getAllTeam);
+      },
+      err => {
+        console.log("err", err);
+        // do a function here
+      }
+    )
   }
 
-  // postMurid(){
-  //   console.log("Daftar Murid")
-  // }
+  index(i){
+    return i+=1;
+  }
 
+  postTeamRegistration() {
+    this.subscription = this.DaftartimService.postTeamRegistration(this.daftarTeam.value).subscribe((data) => {
+      alert("Pendaftaran berhasil");
+      window.location.reload();
+    },
+    err => {
+      console.log('err', err);
+      if (err.status === 500){
+        alert("Email atau username sudah terdaftar");
+      }
+      else if (err.status !== 500){
+        alert("Data anda Salah");
+      }
+    })
+  }  
+
+  ngOnDestroy() {
+    if(this.subscription) this.subscription.unsubscribe();
+  }
+
+  editTeamData(data){
+    this.DaftartimService.storeTeamData(data);
+    this.router.navigate(['admin/edit/edittim']);
+  }
+
+  deleteItem(id){
+    this.subscription = this.DaftartimService.deleteTeam(id).subscribe(data => {
+      alert("Tim berhasil Dihapus");
+      window.location.reload();
+    },
+    err => {
+      console.log('err', err);
+      if (err.status === 400){
+        alert("Tim tidak dapat dihapus karena sudah dibayar");
+      }
+      else if (err.status === 500){
+        alert("Email atau username sudah terdaftar");
+      }
+      else if (err.status !== 500){
+        alert("Gagal Menghapus");
+      }
+
+    })
+  }
 }

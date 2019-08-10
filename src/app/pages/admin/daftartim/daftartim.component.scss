@@ -14,7 +14,11 @@
     text-align: center;
 }
 
-#psn-tim .form-guru{
+#psn-tim table {
+    width: 100%;
+}  
+
+#psn-tim .form-tim{
     width: 100vw;
 }
 
@@ -42,4 +46,38 @@
     padding-top: 3vh;
     padding-bottom: 3vh;
     font-size: 1.5em;
+}
+
+#psn-tim .edit-button{
+    font-size: 1em;
+    width: 6vw;
+    height: 3vh;
+    background: none;
+    border: solid 1px #87f779;
+    color: #87f779;
+    border-radius: 10px;
+}
+
+#psn-tim .edit-button:hover{
+    background: #87f779;
+    color: aliceblue;
+
+    transition: 0.5s;
+}
+
+#psn-tim .delete-button{
+    font-size: 1em;
+    width: 6vw;
+    height: 3vh;
+    background: none;
+    border: solid 1px #f9787b;
+    color: #f9787b;
+    border-radius: 10px;
+}
+
+#psn-tim .delete-button:hover{
+    background: #f9787b;
+    color: aliceblue;
+
+    transition: 0.5s;
 }

@@ -1,0 +1,61 @@
+#psn-finalisasi{
+    overflow: auto;
+}
+
+#psn-finalisasi .container{
+    width: 80vw;
+    margin: 2vh auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+#psn-finalisasi .title{
+    padding-top: 3vh;
+    text-align: center;
+}
+
+#psn-finalisasi table {
+    width: 100%;
+}  
+
+#psn-finalisasi .form-guru{
+    width: 100vw;
+}
+
+#psn-finalisasi .form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#psn-finalisasi .submit-button{
+    width: 20vw;
+    height: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+    background: none;
+    border: solid 2px #3f51b5;
+}
+
+#psn-finalisasi .submit-button:hover{
+    background-color: #3f51b5;
+    color: aliceblue;
+    transition: 0.5s;
+}
+
+#psn-finalisasi .submit-button span{
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    font-size: 1.5em;
+}
+
+#psn-finalisasi .status-open{
+    color: #00C851;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+#psn-finalisasi .status-closed{
+    color: #ff4444;
+    font-size: 1.2em;
+    font-weight: 500;
+}

@@ -19,13 +19,27 @@ export class DaftarlombaService {
     })
   }
 
+  dataLomba = null;
+
   public getAllDaftarLomba(): Observable<any> {
     return this.http.get<any>(
       this.configService.baseUrl + 'contests')
       .pipe(
         map(resp => {
+          this.storeDataLomba(resp.contests);
           return resp;
         })
       )
   }  
+
+  public storeDataLomba(dataLomba) {
+    window.localStorage.setItem('dataLomba', JSON.stringify(dataLomba));
+    this.dataLomba = dataLomba;
+  }
+
+  public loadLomba() {
+    let dataLomba = JSON.parse(window.localStorage.getItem('dataLomba'));
+    return dataLomba;
+  }
+
 }

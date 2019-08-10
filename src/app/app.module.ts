@@ -36,6 +36,7 @@ import { DaftarguruComponent } from './pages/admin/daftarguru/daftarguru.compone
 import { DaftartimComponent } from './pages/admin/daftartim/daftartim.component';
 import { EditguruComponent } from './pages/admin/edit/editguru/editguru.component';
 import { EditpesertaComponent } from './pages/admin/edit/editpeserta/editpeserta.component';
+import { EdittimComponent } from './pages/admin/edit/edittim/edittim.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { EditpesertaComponent } from './pages/admin/edit/editpeserta/editpeserta
     DaftartimComponent,
     EditguruComponent,
     EditpesertaComponent,
+    EdittimComponent,
   ],
   imports: [
     BrowserModule,

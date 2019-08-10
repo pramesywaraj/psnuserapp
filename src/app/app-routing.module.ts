@@ -14,6 +14,8 @@ import { DaftarguruComponent } from './pages/admin/daftarguru/daftarguru.compone
 import { DaftartimComponent } from './pages/admin/daftartim/daftartim.component';
 import { EditguruComponent } from './pages/admin/edit/editguru/editguru.component';
 import { EditpesertaComponent } from './pages/admin/edit/editpeserta/editpeserta.component';
+import { FinalisasiComponent } from './pages/admin/finalisasi/finalisasi.component';
+import { EdittimComponent } from './pages/admin/edit/edittim/edittim.component';
 
 const routes: Routes = [
   {
@@ -60,6 +62,10 @@ const routes: Routes = [
         component: PenginapanComponent,
       },
       {
+        path: 'finalisasi',
+        component: FinalisasiComponent,
+      },
+      {
         path: 'pembayaran',
         component: PembayaranComponent,
       },
@@ -73,6 +79,10 @@ const routes: Routes = [
           {
             path: 'editpeserta',
             component: EditpesertaComponent,
+          },    
+          {
+            path: 'edittim',
+            component: EdittimComponent,
           },    
         ]
       },
