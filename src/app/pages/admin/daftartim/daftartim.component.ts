@@ -24,7 +24,9 @@ export class DaftartimComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, public DaftartimService: DaftartimService, public router: Router) { 
     const schoolId = JSON.parse(localStorage.getItem('schoolId'));
-    this.getAllTeamBySchoolId(schoolId);
+    let contest = 1;
+    let student = 1;
+    this.getAllTeamBySchoolId(schoolId, contest, student);
     const dataLomba = JSON.parse(localStorage.getItem('dataLomba'));
     this.contest = dataLomba;
     this.daftarTeam = this.formBuilder.group(
@@ -39,8 +41,8 @@ export class DaftartimComponent implements OnInit {
   ngOnInit() {
   }
   
-  getAllTeamBySchoolId(id){
-    this.DaftartimService.getAllDaftarTim(id).subscribe(
+  getAllTeamBySchoolId(id, contest, student){
+    this.DaftartimService.getAllDaftarTim(id, contest, student).subscribe(
       (data) => {
         this.getAllTeam = data.teams;
         console.log("cek Data : ", this.getAllTeam);
