@@ -58,7 +58,7 @@
 
               <p class="table-title section-last">Total Pembayaran</p>
               <hr>
-              <mat-grid-list class="section-title" cols="4" rowHeight="40px">
+              <mat-grid-list class="section-title" cols="4" rowHeight="40px" *ngIf="getAllUnpaidTeam">
                 <mat-grid-tile><div class="table-text name last">Total</div></mat-grid-tile>
                 <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
                 <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
