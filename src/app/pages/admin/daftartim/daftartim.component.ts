@@ -20,7 +20,7 @@ export class DaftartimComponent implements OnInit {
 
   private subscription: Subscription;
 
-  displayedColumns: string[] = ['indexNumber', 'name', 'contest', 'students', 'edit', 'delete'];
+  displayedColumns: string[] = ['indexNumber', 'name', 'contest', 'student', 'edit', 'delete'];
 
   constructor(private formBuilder: FormBuilder, public DaftartimService: DaftartimService, public router: Router) { 
     const schoolId = JSON.parse(localStorage.getItem('schoolId'));

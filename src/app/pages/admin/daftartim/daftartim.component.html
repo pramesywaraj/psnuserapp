@@ -38,12 +38,10 @@
                 </ng-container>
 
                 <!-- Weight Column -->
-                <ng-container matColumnDef="students">
+                <ng-container matColumnDef="student">
                   <th mat-header-cell *matHeaderCellDef> Daftar Anggota Tim </th>
-                  <td mat-cell *matCellDef="let data;">
-                      <mat-cell *ngFor="let students of data.student">
-                        {{students.name}} 
-                      </mat-cell>
+                  <td mat-cell *matCellDef="let element">
+                    <p *ngFor="let data of element.student">{{data.name}}</p>
                   </td>
                 </ng-container>
 

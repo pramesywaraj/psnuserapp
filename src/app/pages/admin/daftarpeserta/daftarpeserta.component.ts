@@ -38,9 +38,6 @@ export class DaftarpesertaComponent implements OnInit, OnDestroy {
     // this.subscribe = this.
   }
 
-  ngOnDestroy() {
-
-  }
   
   getAllPesertaBySchoolId(id){
     this.DaftarpesertaService.getAllDaftarPeserta(id).subscribe(
