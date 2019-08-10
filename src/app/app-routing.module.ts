@@ -13,6 +13,7 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { DaftarguruComponent } from './pages/admin/daftarguru/daftarguru.component';
 import { DaftartimComponent } from './pages/admin/daftartim/daftartim.component';
 import { EditguruComponent } from './pages/admin/edit/editguru/editguru.component';
+import { EditpesertaComponent } from './pages/admin/edit/editpeserta/editpeserta.component';
 
 const routes: Routes = [
   {
@@ -68,6 +69,10 @@ const routes: Routes = [
           {
             path: 'editguru',
             component: EditguruComponent,
+          },    
+          {
+            path: 'editpeserta',
+            component: EditpesertaComponent,
           },    
         ]
       },
