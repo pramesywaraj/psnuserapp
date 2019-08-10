@@ -45,7 +45,6 @@ export class DaftartimComponent implements OnInit {
     this.DaftartimService.getAllDaftarTim(id, contest, student).subscribe(
       (data) => {
         this.getAllTeam = data.teams;
-        console.log("cek Data : ", this.getAllTeam);
       },
       err => {
         console.log("err", err);

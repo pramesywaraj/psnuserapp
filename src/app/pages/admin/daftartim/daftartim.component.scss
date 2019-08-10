@@ -18,6 +18,22 @@
     width: 100%;
 }  
 
+// #psn-tim .table-nested{
+//     display: inline-block;
+// }
+
+#psn-tim .table-nested:after{
+    content: ', ';
+    padding-right: 1vw;
+    display: inline-block;
+}
+
+#psn-tim .table-nested p:last-of-type{
+    content: '';
+    padding-right: 1vw;
+    display: inline-block;
+}
+
 #psn-tim .form-tim{
     width: 100vw;
 }

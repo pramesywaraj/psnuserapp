@@ -40,7 +40,10 @@
                 <!-- Weight Column -->
                 <ng-container matColumnDef="students">
                   <th mat-header-cell *matHeaderCellDef> Daftar Anggota Tim </th>
-                  <td mat-cell *matCellDef="let data"> <b>{{data?.student[0]?.name}} <span *ngIf="data?.student[1]">, {{data?.student[1]?.name}}</span> <span *ngIf="data?.student[2]">, {{data?.student[2]?.name}}</span></b></td>
+                  <!-- <td mat-cell *matCellDef="let data"> <b>{{data?.student[0]?.name}} <span *ngIf="data?.student[1]">, {{data?.student[1]?.name}}</span> <span *ngIf="data?.student[2]">, {{data?.student[2]?.name}}</span></b></td> -->
+                  <td mat-cell *matCellDef="let element">
+                    <p *ngFor="let data of element.student">{{data.name}}</p>
+                  </td>
                 </ng-container>
 
                 <!-- Symbol Column -->

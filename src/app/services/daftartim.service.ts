@@ -30,7 +30,6 @@ export class DaftartimService {
      this.configService.baseUrl + 'teams?school=' + id + '&populateContest=' + contest + '&populateStudent=' + student, this.httpOptions)
      .pipe(
        map(resp => {
-         console.log("Cek Url : ", this.configService.baseUrl + 'teams?school=' + id + '&populateContest=' + contest + '&populateStudent=' + student)
          return resp;
        })
      )
