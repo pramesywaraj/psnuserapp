@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material';
+import { MatGridListModule } from '@angular/material';
 
 
 import { HeaderComponent } from './components/header/header.component';
@@ -75,7 +76,8 @@ import { EdittimComponent } from './pages/admin/edit/edittim/edittim.component';
     MatTabsModule,
     MatTableModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

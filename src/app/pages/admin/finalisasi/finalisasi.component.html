@@ -8,53 +8,62 @@
       <mat-card>
         <mat-tab-group>
           <!-- List Finalisasi Start -->
-          <mat-tab label="Daftar Status Pembayaran"> 
+          <mat-tab label="Finalisasi Rincian Pembayaran"> 
             <!-- Card Start -->
             <mat-card>
+              <div style="text-align: center;">
+                  <img src="../../../../assets/img/logo-new-size.png" alt="logo-psn" style="width: 30vw; height: auto;">
+              </div>
               <mat-card-title class="title">
-                Daftar finalisasi Tersedia
+                Finalisasi Rincian Pembayaran
               </mat-card-title>
 
               <br>
 
-              <table mat-table [dataSource]="daftarfinalisasi" class="mat-elevation-z8">
+              <p class="table-title">Rincian Guru</p>
+              <hr>
+              <mat-grid-list class="section-title" cols="4" rowHeight="30px">
+                <mat-grid-tile><div class="table-text-title">Nama Guru Pendamping</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">Harga</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text name">Guru 1</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text price">Rp. 50.000</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text name">Guru 2</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text price">Rp. 50.000</div></mat-grid-tile>
+              </mat-grid-list>
               
-                <!-- Position Column -->
-                <ng-container matColumnDef="indexNumber">
-                  <th mat-header-cell *matHeaderCellDef> No. </th>
-                  <td mat-cell *matCellDef="let data; let i = index"> {{index(i)}} </td>
-                </ng-container>
-              
-                <!-- Name Column -->
-                <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef> Nama finalisasi </th>
-                  <td mat-cell *matCellDef="let data"> {{data.name}} </td>
-                </ng-container>
-              
-                <!-- Weight Column -->
-                <ng-container matColumnDef="memberPerTeam">
-                  <th mat-header-cell *matHeaderCellDef> Maksimal peserta dalam Tiap Tim </th>
-                  <td mat-cell *matCellDef="let data"> <b>{{data.memberPerTeam}}</b> Peserta</td>
-                </ng-container>
-              
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="maxTeam">
-                  <th mat-header-cell *matHeaderCellDef> Sisa Kuota tersedia </th>
-                  <td mat-cell *matCellDef="let data"> <b>{{teamQuota(data.maxTeam, data.registeredTeam)}}</b> Tim</td>
-                </ng-container>
+              <hr>
 
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="registrationStatus">
-                  <th mat-header-cell *matHeaderCellDef> Status Pendaftaran </th>
-                  <td mat-cell *matCellDef="let data">
-                    <span class="status-open"  *ngIf="data.registrationStatus === 'open'">{{data.registrationStatus}}</span>
-                    <span class="status-closed"  *ngIf="data.registrationStatus === 'closed'">{{data.registrationStatus}}</span>
-                  </td>
-                </ng-container>
-                
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </table>
+              <p class="table-title">Rincian Tim</p>
+              <hr>
+              <mat-grid-list class="section-title" cols="4" rowHeight="30px">
+                <mat-grid-tile><div class="table-text-title">Nama Tim</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">Harga</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text name">Tim 1</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text lomba">(CPSC)</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text price">Rp. 50.000</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text name">Tim 2</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text lomba">(Metrix)</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text price">Rp. 50.000</div></mat-grid-tile>
+              </mat-grid-list>
+
+              <p class="table-title section-last">Total Pembayaran</p>
+              <hr>
+              <mat-grid-list class="section-title" cols="4" rowHeight="30px">
+                <mat-grid-tile><div class="table-text name last">Total</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text price last">Rp. 650.000</div></mat-grid-tile>
+              </mat-grid-list>
 
             </mat-card>    
             <!-- Card End -->
