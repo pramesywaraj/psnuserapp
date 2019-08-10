@@ -13,7 +13,7 @@ import { FinalisasiService } from 'src/app/services/finalisasi.service';
 export class FinalisasiComponent implements OnInit {
 
   getAllUnpaidGuru: [];
-  getAllUnpaidTeam: [];
+  getAllUnpaidTeam: any;
 
   private subscription: Subscription;
 
@@ -43,15 +43,7 @@ export class FinalisasiComponent implements OnInit {
   getAllUnpaidTeamBySchoolId(id, contest, student){
     this.FinalisasiService.getAllUnpaidTim(id, contest, student).subscribe(
       (data) => {
-        this.getAllUnpaidTeam = data.teams; 
-        let total = 0;
-        for(let data of this.getAllUnpaidTeam){
-          for(let datas of data.contest){
-            let sum = datas.pricePerStudent * data.memberPerTeam;
-            total+= sum;
-          }
-        }
-      
+        this.getAllUnpaidTeam = data.teams;       
       },
       err => {
         console.log("err", err);
@@ -68,13 +60,10 @@ export class FinalisasiComponent implements OnInit {
   totalPrice() {
     let total = 0;
     for(let data of this.getAllUnpaidTeam){
-      for(let datas of data.contest){
-        let sum = datas.pricePerStudent * data.memberPerTeam;
-        total+= sum;
-      }
+      total += data.contest.pricePerStudent * data.contest.memberPerTeam;
     }
-    return this.formatPrice(total);
+    // let total = this.allUnpaidTeam.reduce( (subtotal, item) => subtotal + item.contest.pricePerStudent * item.contest.memberPerTeam, 0 )
+    return this.formatPrice(total);  
   }
-
 
 }
