@@ -12,6 +12,7 @@ import { PenginapanComponent } from './pages/admin/penginapan/penginapan.compone
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { DaftarguruComponent } from './pages/admin/daftarguru/daftarguru.component';
 import { DaftartimComponent } from './pages/admin/daftartim/daftartim.component';
+import { EditguruComponent } from './pages/admin/edit/editguru/editguru.component';
 
 const routes: Routes = [
   {
@@ -60,6 +61,15 @@ const routes: Routes = [
       {
         path: 'pembayaran',
         component: PembayaranComponent,
+      },
+      {
+        path: 'edit',
+        children:[
+          {
+            path: 'editguru',
+            component: EditguruComponent,
+          },    
+        ]
       },
     ]
   }

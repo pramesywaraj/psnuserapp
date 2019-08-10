@@ -77,6 +77,11 @@ export class DaftarguruComponent implements OnInit {
     if(this.subscription) this.subscription.unsubscribe();
   }
 
+  editTeacherData(data){
+    this.DaftarguruService.storeTeacherData(data);
+    this.router.navigate(['admin/edit/editguru']);
+  }
+
   deleteItem(id){
     this.subscription = this.DaftarguruService.deleteTeachers(id).subscribe((data) => {
       alert("Guru Pendamping berhasil Dihapus");

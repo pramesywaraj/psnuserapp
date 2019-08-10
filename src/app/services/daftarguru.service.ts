@@ -21,6 +21,8 @@ export class DaftarguruService {
     })
   }
 
+  teacherData = null;
+
   public getAllDaftarGuru(id): Observable<any> {
     return this.http.get<any>(
       this.configService.baseUrl + 'teachers/school/' + id, this.httpOptions)
@@ -50,5 +52,30 @@ export class DaftarguruService {
         })
       )
   }  
+
+  public editTeachersData(data): Observable<any> {
+    return this.http.put<any>(
+      this.configService.baseUrl + 'teachers/',  JSON.stringify(data), this.httpOptions)
+      .pipe(
+        map(resp => {
+            return resp;
+        })
+      )
+  }  
+
+  public storeTeacherData(teacherData) {
+    window.localStorage.setItem('teacherData', JSON.stringify(teacherData));
+    this.teacherData = teacherData;
+  }
+
+  public loadTeacherData() {
+    let teacherData = JSON.parse(window.localStorage.getItem('teacherData'));
+    return teacherData;
+  }
+
+  public editCompleted() {
+    this.teacherData = null;
+    localStorage.removeItem("teacherData");
+  }
 
 }
