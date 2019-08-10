@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material';
+import { MatGridListModule } from '@angular/material';
 
 
 import { HeaderComponent } from './components/header/header.component';
@@ -34,6 +35,9 @@ import { PenginapanComponent } from './pages/admin/penginapan/penginapan.compone
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { DaftarguruComponent } from './pages/admin/daftarguru/daftarguru.component';
 import { DaftartimComponent } from './pages/admin/daftartim/daftartim.component';
+import { EditguruComponent } from './pages/admin/edit/editguru/editguru.component';
+import { EditpesertaComponent } from './pages/admin/edit/editpeserta/editpeserta.component';
+import { EdittimComponent } from './pages/admin/edit/edittim/edittim.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +55,9 @@ import { DaftartimComponent } from './pages/admin/daftartim/daftartim.component'
     RegistrationComponent,
     DaftarguruComponent,
     DaftartimComponent,
+    EditguruComponent,
+    EditpesertaComponent,
+    EdittimComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +76,8 @@ import { DaftartimComponent } from './pages/admin/daftartim/daftartim.component'
     MatTabsModule,
     MatTableModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

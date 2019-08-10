@@ -20,6 +20,7 @@ export class LoginService {
   }
 
   userToken = null;
+  schoolId = null;
 
   public postLoginData(data): Observable<any> {
     return this.http.post<any>(
@@ -27,6 +28,7 @@ export class LoginService {
       .pipe(
         map(resp => {
           this.storeToken(resp.token);
+          this.storeSchoolId(resp.school._id);
           return resp;
       })
     )
@@ -34,7 +36,9 @@ export class LoginService {
   
   public logout() {
     this.userToken = null;
+    this.schoolId = null;
     localStorage.removeItem("token");
+    localStorage.removeItem("schoolId");
   }
 
   public storeToken(token) {
@@ -42,8 +46,18 @@ export class LoginService {
     this.userToken = token;
   }
 
+  public storeSchoolId(schoolId) {
+    window.localStorage.setItem('schoolId', JSON.stringify(schoolId));
+    this.schoolId = schoolId;
+  }
+
   public loadToken() {
     let token = JSON.parse(window.localStorage.getItem('token'));
     return token;
+  }
+
+  public loadSchoolId() {
+    let schoolId = JSON.parse(window.localStorage.getItem('schoolId'));
+    return schoolId;
   }
 }

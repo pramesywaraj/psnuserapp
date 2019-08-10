@@ -1,0 +1,46 @@
+
+
+<!-- Daftar peserta Start -->
+<section id="psn-peserta">
+  <div class="container">
+    <div class="card-grid">
+
+      <mat-card>
+        <mat-tab-group>
+          <!-- Edit peserta Pendamping Start -->
+          <mat-tab label="Edit Peserta"> 
+            <!-- Card Start -->
+            <mat-card>
+              <mat-card-title class="title">
+                Edit Peserta
+              </mat-card-title>
+
+              <form [formGroup]="daftarStudent" (ngSubmit)="editStudentData()">
+                <div class="form-container">
+                  <mat-form-field>
+                    <input class="input-form" formControlName="name" matInput placeholder="Nama" required>
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="email" matInput placeholder="Email" required>
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="phone" matInput placeholder="Nomor Telepon" required>
+                  </mat-form-field>              
+                  <button [disabled]="!daftarStudent.valid" class="submit-button" type="submit">
+                    <span>Ubah Data Peserta</span>
+                  </button>
+                </div>    
+              </form>
+              
+            </mat-card>    
+            <!-- Card End -->
+          </mat-tab>
+          <!-- Daftar peserta Pendamping End -->
+
+        </mat-tab-group>
+      </mat-card>          
+      
+    </div>
+  </div>
+</section>
+<!-- Daftar peserta End -->

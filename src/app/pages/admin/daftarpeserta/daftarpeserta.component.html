@@ -1,14 +1,14 @@
 
 
-<!-- Daftar Peserta Start -->
+<!-- Daftar peserta Start -->
 <section id="psn-peserta">
   <div class="container">
     <div class="card-grid">
 
       <mat-card>
         <mat-tab-group>
-          <!-- List Guru dan Murid Start -->
-          <mat-tab label="Daftar Murid"> 
+          <!-- List peserta Start -->
+          <mat-tab label="List peserta"> 
             <!-- Card Start -->
             <mat-card>
               <mat-card-title class="title">
@@ -17,42 +17,62 @@
 
               <br>
 
-              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
+              <table mat-table [dataSource]="getAllStudent" class="mat-elevation-z8">
+              
                 <!-- Position Column -->
-                <ng-container matColumnDef="index">
+                <ng-container matColumnDef="indexNumber">
                   <th mat-header-cell *matHeaderCellDef> No. </th>
-                  <td mat-cell *matCellDef="let data; let i = index"> {{indexing(i)}} </td>
+                  <td mat-cell *matCellDef="let data; let i = index;"> {{index(i)}} </td>
                 </ng-container>
               
                 <!-- Name Column -->
                 <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef> Nama </th>
-                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  <th mat-header-cell *matHeaderCellDef> Nama Peserta</th>
+                  <td mat-cell *matCellDef="let data"> {{data.name}} </td>
                 </ng-container>
               
                 <!-- Weight Column -->
-                <ng-container matColumnDef="phone">
-                  <th mat-header-cell *matHeaderCellDef> No Telepon </th>
-                  <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef> Email </th>
+                  <td mat-cell *matCellDef="let data"> <b>{{data.email}}</b></td>
                 </ng-container>
               
                 <!-- Symbol Column -->
-                <ng-container matColumnDef="email">
-                  <th mat-header-cell *matHeaderCellDef> Email </th>
-                  <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                <ng-container matColumnDef="phone">
+                  <th mat-header-cell *matHeaderCellDef> Phone </th>
+                  <td mat-cell *matCellDef="let data"> <b>{{data.phone}}</b></td>
                 </ng-container>
-              
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="edit">
+                  <th mat-header-cell *matHeaderCellDef> Edit </th>
+                  <td mat-cell *matCellDef="let data"> 
+                    <button class="edit-button" (click)="editStudentData(data)">
+                      <span>Edit</span>
+                    </button>
+                  </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="delete">
+                  <th mat-header-cell *matHeaderCellDef> Delete </th>
+                  <td mat-cell *matCellDef="let data"> 
+                    <button class="delete-button" (click)="deleteItem(data._id)">
+                      <span>Hapus</span>
+                    </button>
+                  </td>
+                </ng-container>
+
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               </table>
-                                
+
             </mat-card>    
             <!-- Card End -->
           </mat-tab>
-          <!-- Daftar Guru dan Murid End -->
+          <!-- Daftar peserta dan Murid End -->
 
-          <!-- Daftar Siswa Start -->
+          <!-- Daftar peserta Pendamping Start -->
           <mat-tab label="Tambahkan Peserta"> 
             <!-- Card Start -->
             <mat-card>
@@ -60,31 +80,32 @@
                 Tambahkan Murid
               </mat-card-title>
 
-              <form [formGroup]="daftarMurid" (ngSubmit)="postMurid()">
+              <form [formGroup]="daftarPeserta" (ngSubmit)="postStudentRegistration()">
                 <div class="form-container">
                   <mat-form-field>
-                    <input class="input-form" formControlName="name" matInput placeholder="Nama">
+                    <input class="input-form" formControlName="name" matInput placeholder="Nama" [formControl]="name" required>
                   </mat-form-field>              
                   <mat-form-field>
-                    <input class="input-form" formControlName="email" matInput placeholder="Email">
+                    <input class="input-form" formControlName="email" matInput placeholder="Email" [formControl]="email" required>
                   </mat-form-field>              
                   <mat-form-field>
-                    <input class="input-form" formControlName="phone" matInput placeholder="Nomor Telepon">
+                    <input class="input-form" formControlName="phone" matInput placeholder="Nomor Telepon" [formControl]="phone" required>
                   </mat-form-field>              
-                  <button [disabled]="!daftarMurid.valid" class="submit-button" type="submit">
-                    <span>Tambahkan Murid</span>
+                  <button [disabled]="!daftarPeserta.valid" class="submit-button" type="submit">
+                    <span>Tambahkan peserta</span>
                   </button>
                 </div>    
               </form>
-
+              
             </mat-card>    
             <!-- Card End -->
           </mat-tab>
-          <!-- Daftar Siswa End -->
+          <!-- Daftar peserta Pendamping End -->
+
         </mat-tab-group>
       </mat-card>          
       
     </div>
   </div>
 </section>
-<!-- Daftar Peserta End -->
+<!-- Daftar peserta End -->

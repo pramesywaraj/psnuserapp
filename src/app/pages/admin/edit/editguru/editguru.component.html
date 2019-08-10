@@ -1,0 +1,49 @@
+
+
+<!-- Daftar guru Start -->
+<section id="psn-guru">
+  <div class="container">
+    <div class="card-grid">
+
+      <mat-card>
+        <mat-tab-group>
+          <!-- Edit Guru Pendamping Start -->
+          <mat-tab label="Edit Guru Pendamping"> 
+            <!-- Card Start -->
+            <mat-card>
+              <mat-card-title class="title">
+                Edit Guru Pendamping
+              </mat-card-title>
+
+              <form [formGroup]="daftarGuru" (ngSubmit)="editTeacherData()">
+                <div class="form-container">
+                  <mat-form-field>
+                    <input class="input-form" formControlName="name" matInput placeholder="Nama" required>
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="NIP" matInput placeholder="NIP" required>
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="email" matInput placeholder="Email" required>
+                  </mat-form-field>              
+                  <mat-form-field>
+                    <input class="input-form" formControlName="phone" matInput placeholder="Nomor Telepon" required>
+                  </mat-form-field>              
+                  <button [disabled]="!daftarGuru.valid" class="submit-button" type="submit">
+                    <span>Ubah Data Guru</span>
+                  </button>
+                </div>    
+              </form>
+              
+            </mat-card>    
+            <!-- Card End -->
+          </mat-tab>
+          <!-- Daftar Guru Pendamping End -->
+
+        </mat-tab-group>
+      </mat-card>          
+      
+    </div>
+  </div>
+</section>
+<!-- Daftar guru End -->
