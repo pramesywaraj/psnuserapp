@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -9,7 +9,7 @@ import { DaftarpesertaService } from 'src/app/services/daftarpeserta.service';
   templateUrl: './daftarpeserta.component.html',
   styleUrls: ['./daftarpeserta.component.scss']
 })
-export class DaftarpesertaComponent implements OnInit {
+export class DaftarpesertaComponent implements OnInit, OnDestroy {
   
   name = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -35,7 +35,9 @@ export class DaftarpesertaComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.subscribe = this.
   }
+
   
   getAllPesertaBySchoolId(id){
     this.DaftarpesertaService.getAllDaftarPeserta(id).subscribe(
