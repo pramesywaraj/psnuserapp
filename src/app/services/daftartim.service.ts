@@ -22,12 +22,15 @@ export class DaftartimService {
  }
 
  teamData = null;
+ contest = 1;
+ student = 3;
 
- public getAllDaftarTim(id): Observable<any> {
+ public getAllDaftarTim(id, contest, student): Observable<any> {
    return this.http.get<any>(
-     this.configService.baseUrl + 'teams?school=' + id, this.httpOptions)
+     this.configService.baseUrl + 'teams?school=' + id + '&populateContest=' + contest + '&populateStudent=' + student, this.httpOptions)
      .pipe(
        map(resp => {
+         console.log("Cek Url : ", this.configService.baseUrl + 'teams?school=' + id + '&populateContest=' + contest + '&populateStudent=' + student)
          return resp;
        })
      )
