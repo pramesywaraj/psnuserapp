@@ -31,7 +31,17 @@ export class DaftarpesertaService {
          return resp;
        })
      )
- }  
+ }
+
+ public getAvailStudent(schoolId): Observable<any> {
+  return this.http.get<any>(
+    this.configService.baseUrl + 'students/available/' + schoolId, this.httpOptions)
+    .pipe(
+      map(resp => {
+        return resp;
+      })
+    )
+}  
 
  public postStudentRegistration(data): Observable<any> {
    return this.http.post<any>(

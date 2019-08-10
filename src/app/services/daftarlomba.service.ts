@@ -23,7 +23,7 @@ export class DaftarlombaService {
 
   public getAllDaftarLomba(): Observable<any> {
     return this.http.get<any>(
-      this.configService.baseUrl + 'contests')
+      this.configService.baseUrl + 'contests/?registrationStatus=open')
       .pipe(
         map(resp => {
           this.storeDataLomba(resp.contests);

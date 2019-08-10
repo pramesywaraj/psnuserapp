@@ -82,41 +82,23 @@
                 Tambahkan Tim
               </mat-card-title>
 
-              <form [formGroup]="daftarTeam" (ngSubmit)="postTeam()">
+              <small *ngIf="dataStudent?.length === 0" style="color: red">Seluruh siswa Anda telah masuk ke dalam tim. Harap tambah siswa terlebih dahulu apabila ingin menambahkan tim.</small>
+
+              <form [formGroup]="daftarTeam" (ngSubmit)="postTeamRegistration()">
                 <div class="form-container">
                   <mat-form-field>
                     <input class="input-form" formControlName="name" matInput placeholder="Nama Tim">
                   </mat-form-field>              
                   
                   <mat-form-field>
-                    <mat-select placeholder="Pilih tim" formControlName="contest">
-                      <mat-option value="Metrix">Metrix</mat-option>
-                      <mat-option value="CPSC">CPSC</mat-option>
-                      <mat-option value="LKIP">LKIP</mat-option>
+                    <mat-select placeholder="Pilih lomba" formControlName="contest" (selectionChange)="changeStudentsField($event)">
+                      <mat-option *ngFor="let lomba of dataLomba" value="{{lomba._id}}">{{lomba.name}}</mat-option>
                     </mat-select>
                   </mat-form-field>
                   
                   <mat-form-field>
-                    <mat-select placeholder="Pilih Anggota 1" formControlName="students">
-                      <mat-option value="Adam">Adam</mat-option>
-                      <mat-option value="Pramesywara">Pramesywara</mat-option>
-                      <mat-option value="Rakish">Rakish</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-
-                  <mat-form-field>
-                    <mat-select placeholder="Pilih Anggota 2" formControlName="students">
-                      <mat-option value="Adam">Adam</mat-option>
-                      <mat-option value="Pramesywara">Pramesywara</mat-option>
-                      <mat-option value="Rakish">Rakish</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-
-                  <mat-form-field>
-                    <mat-select placeholder="Pilih Anggota 3" formControlName="students">
-                      <mat-option value="Adam">Adam</mat-option>
-                      <mat-option value="Pramesywara">Pramesywara</mat-option>
-                      <mat-option value="Rakish">Rakish</mat-option>
+                    <mat-select placeholder="Pilih Anggota Tim" formControlName="student" multiple (selectionChange)="checkSelected($event)" [disabled]="dataStudent?.length === 0">
+                      <mat-option *ngFor="let student of dataStudent" value="{{student._id}}">{{student.name}}</mat-option>
                     </mat-select>
                   </mat-form-field>
 
