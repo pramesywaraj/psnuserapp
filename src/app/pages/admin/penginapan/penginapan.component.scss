@@ -1,0 +1,112 @@
+#psn-penginapan{
+    overflow: auto;
+}
+
+#psn-penginapan .container{
+    width: 80vw;
+    margin: 2vh auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+#psn-penginapan .title{
+    padding-top: 3vh;
+    text-align: center;
+}
+
+#psn-penginapan table {
+    width: 100%;
+}  
+
+#psn-penginapan .form-guru{
+    width: 100vw;
+}
+
+#psn-penginapan .form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#psn-penginapan .submit-button{
+    width: 20vw;
+    height: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+    background: none;
+    border: solid 2px #3f51b5;
+}
+
+#psn-penginapan .submit-button:hover{
+    background-color: #3f51b5;
+    color: aliceblue;
+    transition: 0.5s;
+}
+
+#psn-penginapan .submit-button span{
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    font-size: 1.5em;
+}
+
+#psn-penginapan .status-open{
+    color: #00C851;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+#psn-penginapan .status-closed{
+    color: #ff4444;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+#psn-penginapan .table-title{
+    font-size: 1.2em;
+    font-weight: 700;
+    color: black;
+}
+
+#psn-penginapan .table-title .section-last{
+    margin-top: 5vh;
+    margin-bottom: 5vh;    
+    color: black;
+}
+
+#psn-penginapan .table-text{
+    font-size: 1em;
+}
+
+#psn-penginapan .table-text-title{
+    font-size: 1em;
+    font-weight: 700;
+}
+
+#psn-penginapan .section-title .name{
+    font-weight: 400;
+}
+
+#psn-penginapan .section-title .lomba{
+    font-weight: 500;
+}
+
+#psn-penginapan .section-title .price{
+    font-weight: 500;
+}
+
+#psn-penginapan .section-title .last{
+    font-size: 1.2em;
+    color: #00C851;
+}
+
+#psn-penginapan .mat-footer{
+    color: #f9787b; 
+    font-size: 1em; 
+    font-weight: 500;
+    margin: 0% 1vw;
+}
+
+#psn-penginapan p{
+    width: 75vw;
+    display: inline-flex;
+}
+

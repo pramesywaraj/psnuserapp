@@ -1,3 +1,92 @@
-<p>
-  penginapan works!
-</p>
+
+
+<!-- Daftar Peserta Start -->
+<section id="psn-penginapan">
+    <div class="container">
+      <div class="card-grid">
+  
+        <mat-card>
+          <mat-tab-group>
+            <!-- List Guru dan Murid Start -->
+            <mat-tab label="Daftar penginapan"> 
+              <!-- Card Start -->
+              <mat-card>
+                <mat-card-title class="title">
+                  Daftar penginapan
+                </mat-card-title>
+  
+                <br>
+  
+                <table mat-table [dataSource]="daftarPenginapan" class="mat-elevation-z8">
+                
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="indexNumber">
+                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                    <td mat-cell *matCellDef="let data; let i = index"> {{indexing(i)}} </td>
+                  </ng-container>
+                
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Nama Penginapan </th>
+                    <td mat-cell *matCellDef="let data"> {{data?.name}} </td>
+                  </ng-container>
+                
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="quota">
+                    <th mat-header-cell *matHeaderCellDef> Kuota </th>
+                    <td mat-cell *matCellDef="let data"> {{data?.quota}} </td>
+                  </ng-container>
+                
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="currentQuota">
+                    <th mat-header-cell *matHeaderCellDef> Sisa Kuota </th>
+                    <td mat-cell *matCellDef="let data"> <b style="font-size: 1em; font-weight: 700;">{{data?.quota - data?.reservedQuota}}</b> </td>
+                  </ng-container>
+  
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="pricePerNight">
+                    <th mat-header-cell *matHeaderCellDef> Harga per Malam </th>
+                    <td mat-cell *matCellDef="let data"><b style="font-size: 1em; font-weight: 700;">Rp. {{formatPrice(data?.pricePerNight)}}</b> </td>
+                  </ng-container>
+                    
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-card-footer class="mat-footer">
+                  <div class="container">
+                    <p>Catatan: </p>
+                    <p>Pembayaran Penginapan Belum Dibuka</p>
+                    <!-- <ul>
+                      <li>
+                        1-5 Orang Peserta per Sekolah : 1 Orang Guru Pendamping
+                      </li>
+                      <li>
+                        6-15 Orang Peserta per Sekolah : 2 Orang Guru Pendamping (Maksimal)
+                      </li>
+                      <li>
+                        16-30 Orang Peserta per Sekolah : 3 Orang Guru Pendamping (Maksimal)
+                      </li>
+                      <li>
+                        >30 Orang Peserta per Sekolah : 4 Orang Guru Pendamping (Maksimal)
+                      </li>
+                    </ul>
+                    <p>Apabila guru pendamping yang mendaftar dan datang ke acara melebihi ketentuan maka akan dikenakan biaya tambahan sebesar Rp. 100.000/guru</p>
+                    <p></p> -->
+                  </div>
+                </mat-card-footer>
+
+  
+              </mat-card>    
+              <!-- Card End -->
+            </mat-tab>
+            <!-- Daftar Guru dan Murid End -->
+  
+          </mat-tab-group>
+        </mat-card>          
+        
+      </div>
+    </div>
+  </section>
+  <!-- Daftar Peserta End -->
+  
