@@ -16,13 +16,14 @@ export class FinalisasiComponent implements OnInit {
   getAllUnpaidTeam: any;
 
   private subscription: Subscription;
+  schoolId: any;
 
   constructor(public FinalisasiService: FinalisasiService, public router: Router) { 
-    const schoolId = JSON.parse(localStorage.getItem('schoolId'));
+    this.schoolId = JSON.parse(localStorage.getItem('schoolId'));
     let contest = 1;
     let student = 3;
-    this.getAllUnpaidGuruBySchoolId(schoolId);
-    this.getAllUnpaidTeamBySchoolId(schoolId, contest, student);
+    this.getAllUnpaidGuruBySchoolId(this.schoolId);
+    this.getAllUnpaidTeamBySchoolId(this.schoolId, contest, student);
   }
 
   ngOnInit() {
@@ -64,6 +65,27 @@ export class FinalisasiComponent implements OnInit {
     }
     // let total = this.allUnpaidTeam.reduce( (subtotal, item) => subtotal + item.contest.pricePerStudent * item.contest.memberPerTeam, 0 )
     return this.formatPrice(total);  
+  }
+
+  generatePayment() {
+    if(confirm('Apakah Anda telah yakin untuk melakukan pembayaran?')) {
+      let type = {
+        "type": "registration",
+        "school": this.schoolId
+      }
+
+      this.FinalisasiService.generatePayment(type).subscribe(res => {
+        alert('Pendaftaran telah dikonfirmasi, mohon membayar pada VA (Virtual Account) yang telah tersedia pada halaman selanjutnya.');
+        console.log(res);
+        this.router.navigate(['/admin/pembayaran']);
+      },
+        err => {
+          console.log(err);
+          alert('Gagal melakukan konfirmasi pendaftaran, harap hubungi Admin.');
+        }
+      );
+
+    }
   }
 
 }

@@ -39,6 +39,16 @@ export class FinalisasiService {
         return resp;
       })
     )
-  }   
+  }
+
+  public generatePayment(type): Observable<any> {
+    return this.http.post<any>(
+      this.configService.baseUrl + 'bills/', type, this.httpOptions)
+      .pipe(
+        map(resp => {
+          return resp;
+        })
+      )
+    }
 
 }
