@@ -28,10 +28,6 @@ const routes: Routes = [
     path: 'homepage',
     component: HomepageComponent,
   },
-  {
-    path: '**',
-    redirectTo: 'homepage'
-  },  
 
   // Admin User
   {
@@ -98,7 +94,12 @@ const routes: Routes = [
         ]
       },
     ]
-  }
+  },
+  {
+    path: '**',
+    redirectTo: 'homepage'
+  },  
+
 ];
 
 @NgModule({
