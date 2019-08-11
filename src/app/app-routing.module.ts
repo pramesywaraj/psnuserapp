@@ -16,13 +16,20 @@ import { EditguruComponent } from './pages/admin/edit/editguru/editguru.componen
 import { EditpesertaComponent } from './pages/admin/edit/editpeserta/editpeserta.component';
 import { FinalisasiComponent } from './pages/admin/finalisasi/finalisasi.component';
 import { EdittimComponent } from './pages/admin/edit/edittim/edittim.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/login',
+  { path: '',
+    redirectTo: 'homepage',
     pathMatch: 'full'
   },
+
+  {
+    path: 'homepage',
+    component: HomepageComponent,
+  },
+
+  // Admin User
   {
     path: 'login',
     component: LoginComponent

@@ -1,0 +1,19 @@
+#psn-nav{
+    background-color: rgba(46, 46, 46, 0.8);
+}
+
+#psn-nav img{
+    width: 180px;
+    height: auto;
+}
+
+#psn-nav a{
+    color: aliceblue;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+#psn-nav a:hover{
+    color: #336677;
+    transition: 0.5s
+}
