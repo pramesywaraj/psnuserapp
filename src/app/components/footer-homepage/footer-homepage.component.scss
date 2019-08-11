@@ -1,0 +1,25 @@
+.dark-bg{
+    background-color: #2E2E2E;
+    color: aliceblue;
+}
+
+.extra-dark-bg{
+    background-color: #212121;
+    color: aliceblue;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.obj-center{
+    margin: 0% auto;
+}
+
+// Responsive
+@media screen and (max-width: 767px) {
+} 

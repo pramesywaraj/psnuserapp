@@ -1,0 +1,70 @@
+// Slide 1
+#slide-1{
+    max-height: 100vh;
+    min-height: 100vh;
+    background-color: rgba(166,56,117,0.3);    
+}
+
+.carousel-caption p{
+    font-size: 1.2em;
+}
+
+#video{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
+.dark-img {
+    position: relative;
+    width: 100%;
+}
+  
+.dark-img img {
+    display: block;
+    width: 100%;
+}
+  
+.dark-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, .5);
+}
+
+#logo-psn{
+    margin: 0% auto;
+    width: 50vw;
+    height: auto;
+}
+
+.desktop-text{
+    display: block
+}
+
+.mobile-text{
+    display: none;
+}
+
+@media screen and (max-width: 400px){
+
+    #logo-psn{
+        width: 75vw;
+    }
+
+    .desktop-text{
+        display: none;
+    }
+
+    .mobile-text{
+        display: block;
+    }
+}

@@ -1,0 +1,81 @@
+// Slide 10
+#slide-10{
+    background-color: #1C2331;
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 0%;
+    margin: 0%;
+}
+
+.text-crimson{
+    color: #e96b66;
+}
+
+.text-crimson p{
+    color: #faf188;
+    font-size: 1.3em;
+}
+
+#slide-10 .carousel-caption{
+    top: 50%;
+    transform: translateY(-75%);
+}
+
+// Responsive 
+
+.desktop-view{
+    display: block;
+}
+
+.tablet-view{
+    display: none;
+}
+
+.mobile-view{
+    display: none;
+}
+
+@media screen and (max-width: 767px){
+ 
+    .desktop-view{
+        display: none;
+    }
+    
+    .tablet-view{
+        display: block;
+    }
+
+    .mobile-view{
+        display: none;
+    }
+    
+    // Slide 10
+    #slide-10{
+        background-color: #1C2331;
+        min-height: 110vh;
+        max-height: 110vh;
+    }    
+}
+
+@media screen and (max-width: 499px){
+
+    .desktop-view{
+        display: none;
+    }
+    
+    .tablet-view{
+        display: none;
+    }
+
+    .mobile-view{
+        display: block;
+    }
+
+
+    // Slide 10
+    #slide-10{
+        background-color: #1C2331;
+        min-height: 120vh;
+        max-height: 120vh;
+    }    
+}

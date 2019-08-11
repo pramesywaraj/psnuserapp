@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -38,6 +40,16 @@ import { DaftartimComponent } from './pages/admin/daftartim/daftartim.component'
 import { EditguruComponent } from './pages/admin/edit/editguru/editguru.component';
 import { EditpesertaComponent } from './pages/admin/edit/editpeserta/editpeserta.component';
 import { EdittimComponent } from './pages/admin/edit/edittim/edittim.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { HeaderHomepageComponent } from './components/header-homepage/header-homepage.component';
+import { FooterHomepageComponent } from './components/footer-homepage/footer-homepage.component';
+import { AboutComponent } from './components/about/about.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { CompetitionComponent } from './components/competition/competition.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { OfferComponent } from './components/offer/offer.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +70,16 @@ import { EdittimComponent } from './pages/admin/edit/edittim/edittim.component';
     EditguruComponent,
     EditpesertaComponent,
     EdittimComponent,
+    HomepageComponent,
+    HeaderHomepageComponent,
+    FooterHomepageComponent,
+    AboutComponent,
+    CarouselComponent,
+    CompetitionComponent,
+    ContactComponent,
+    FaqComponent,
+    GalleryComponent,
+    OfferComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +99,8 @@ import { EdittimComponent } from './pages/admin/edit/edittim/edittim.component';
     MatTableModule,
     MatSelectModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    // ScrollToModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

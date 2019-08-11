@@ -1,0 +1,74 @@
+<!-- Slide 4 Start -->
+
+<div id="slide-4">
+  <div class="main-container">
+      <div class="container">
+          <span style="font-size: 5em; color: #3b73c5;">
+              <i class="fas fa-trophy"></i>
+          </span>
+          <p>Kompetisi PSN 2019</p>
+      </div>            
+  </div>
+</div>                        
+
+<!-- Slide 4 End -->
+
+<!-- Slide 5 Start -->
+
+<div id="slide-5">
+  <div class="container">
+
+      <!-- PSN Button Start -->
+      <div class="row text-center">
+          <div class="col">
+              <a target="_blank" title="Unduh Buku Panduan" class="btn" href="https://drive.google.com/open?id=1vmr_iBIbBKPnHmvjTqAy2c-DGe-qZulD" target="_blank" role="button" style="font-size:1.1em;background-color: #3b73c5; color: aliceblue;">
+                  <i class="fa fa-book"> | Buku Panduan</i>
+              </a>
+              <a target="_blank" title="Timeline Perlombaan" class="btn" href="https://drive.google.com/file/d/1KDOlxpX48z2TfRU2OgD9nb5AqL9DBjm4/view?usp=sharing" target="_blank" role="button"  style="font-size:1.1em;background-color: #3b73c5; color: aliceblue;">
+                  <i class="fa fa-history"> | Timeline</i>
+              </a>    
+              <a target="_blank" title="Timeline Perlombaan" class="btn" href="https://drive.google.com/file/d/1W6a4ljFZVQNO8os_CbpQZnPwUaFOIHEB/view" target="_blank" role="button"  style="font-size:1.1em;background-color: #3b73c5; color: aliceblue;">
+                  <i class="fa fa-book"> | Bank Soal</i>
+              </a>    
+              <a target="_blank" title="Template Lomba LKIP" class="btn" href="https://drive.google.com/file/d/1Dinedb2Yy9XwE0KAWjquL66OtTijBoW1/view" target="_blank" role="button"  style="font-size:1.1em;background-color: #3b73c5; color: aliceblue;">
+                  <i class="fa fa-file-word"> | Bank Soal</i>
+              </a>    
+          </div>
+      </div>
+      <!-- PSN Button End -->
+
+      <!-- Deck Start -->
+      <div class="row">
+
+          <!-- Card Start -->
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4 py-3" *ngFor="let data of allCompetition">
+              <div class="card mb-3" style="height: 80vh;">                    
+                  <!--Card image-->
+                  <div class="view overlay text-center">
+                      <img class="card-img-top" [src]="imageUrl(data?.img)" alt="logo-kompetisi">
+                      <a href="#!">
+                      <div class="mask rgba-white-slight"></div>
+                      </a>
+                  </div>
+              
+                  <!--Card content-->
+                  <div class="card-body">                
+                      <p class="card-title">1 Tim Terdiri dari {{data?.memberPerTeam}} Peserta</p>
+                      <p class="job-type">{{data?.name}}</p>
+                  </div>
+
+                  <!-- Card footer -->
+                  <div class="card-footer text-muted text-center mt-4">
+                      <p style="font-weight: 700;">Sisa Kuota : <span class="kuota">{{data?.maxTeam}}</span></p>
+                  </div>
+              </div>
+          </div>
+          <!-- Card End -->
+          
+      </div>
+      <!-- Deck End -->
+      
+  </div>            
+</div>
+
+<!-- Slide 5 End -->
