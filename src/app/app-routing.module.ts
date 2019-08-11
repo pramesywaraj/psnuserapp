@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'homepage',
     component: HomepageComponent,
   },
+  {
+    path: '**',
+    redirectTo: 'homepage'
+  },  
 
   // Admin User
   {
