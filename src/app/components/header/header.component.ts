@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     this.LoginService.logout();
+    localStorage.clear();
     alert("Anda berhasil Logout");
     this.router.navigate(['/login']);
   }

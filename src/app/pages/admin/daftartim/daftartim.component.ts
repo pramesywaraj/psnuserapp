@@ -36,7 +36,6 @@ export class DaftartimComponent implements OnInit {
     this.getAllTeamBySchoolId(schoolId, contest, student);
     this.getAvailStudent(schoolId);
     this.dataLomba = JSON.parse(localStorage.getItem('dataLomba'));
-    console.log(this.dataLomba);
     // this.contest = dataLomba;
     this.daftarTeam = this.formBuilder.group(
       {

@@ -3,7 +3,7 @@
 <!-- Daftar Peserta Start -->
 <section id="psn-finalisasi">
   <div class="container">
-    <div class="card-grid">
+    <div class="card-grid" *ngIf="getAllUnpaidGuru && getAllUnpaidTeam">
 
       <mat-card>
         <mat-tab-group>
@@ -31,11 +31,10 @@
                   <!-- <mat-grid-tile><div class="table-text-title">Harga</div></mat-grid-tile>     -->
                 </div>
                 <div *ngFor="let data of getAllUnpaidGuru">
-                  <mat-grid-tile><div class="table-text name">{{data.name}}</div></mat-grid-tile>
+                  <mat-grid-tile><div class="table-text name">{{data?.name}}</div></mat-grid-tile>
                   <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
                   <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
                   <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>                  
-                  <!-- <mat-grid-tile><div class="table-text price">Rp. 50.000</div></mat-grid-tile>     -->
                 </div>
               </mat-grid-list>
               
@@ -51,10 +50,10 @@
                   <mat-grid-tile><div class="table-text-title">Harga</div></mat-grid-tile>    
                 </div>
                 <div *ngFor="let data of getAllUnpaidTeam">
-                  <mat-grid-tile><div class="table-text name">{{data.name}}</div></mat-grid-tile>
-                  <mat-grid-tile><div class="table-text lomba">({{data.contest.name}})</div></mat-grid-tile>
-                  <mat-grid-tile><div class="table-text-title">({{data.contest.memberPerTeam}})</div></mat-grid-tile>
-                  <mat-grid-tile><div class="table-text price">Rp. {{formatPrice(data.contest.pricePerStudent * data.contest.memberPerTeam)}}</div></mat-grid-tile>    
+                  <mat-grid-tile><div class="table-text name">{{data?.name}}</div></mat-grid-tile>
+                  <mat-grid-tile><div class="table-text lomba">({{data?.contest.name}})</div></mat-grid-tile>
+                  <mat-grid-tile><div class="table-text-title">({{data?.contest.memberPerTeam}})</div></mat-grid-tile>
+                  <mat-grid-tile><div class="table-text price">Rp. {{formatPrice(data?.contest.pricePerStudent * data?.contest.memberPerTeam)}}</div></mat-grid-tile>    
                 </div>
               </mat-grid-list>
 
@@ -97,7 +96,7 @@
             <p>Apabila guru pendamping yang mendaftar dan datang ke acara melebihi ketentuan maka akan dikenakan biaya tambahan sebesar Rp. 100.000/guru</p>
             <p></p>
           </div>
-          <div class="container">
+          <div class="container" style="margin: 0% auto;">
             <button
               [disabled]="getAllUnpaidGuru.length === 0 && getAllUnpaidTeam.length === 0"
               mat-raised-button 

@@ -12,8 +12,8 @@ import { FinalisasiService } from 'src/app/services/finalisasi.service';
 })
 export class FinalisasiComponent implements OnInit {
 
-  getAllUnpaidGuru: [];
-  getAllUnpaidTeam: any;
+  getAllUnpaidGuru= [];
+  getAllUnpaidTeam= [];
 
   private subscription: Subscription;
   schoolId: any;
