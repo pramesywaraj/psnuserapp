@@ -82,7 +82,7 @@
                 Tambahkan Tim
               </mat-card-title>
 
-              <small *ngIf="dataStudent?.length === 0" style="color: red">Seluruh siswa Anda telah masuk ke dalam tim. Harap tambah siswa terlebih dahulu apabila ingin menambahkan tim.</small>
+              <small *ngIf="dataStudent?.length === 0" style="color: red">Seluruh siswa Anda telah masuk ke dalam tim atau belum ada sama sekali. Harap tambah siswa terlebih dahulu apabila ingin menambahkan tim.</small>
 
               <form [formGroup]="daftarTeam" (ngSubmit)="postTeamRegistration()">
                 <div class="form-container">

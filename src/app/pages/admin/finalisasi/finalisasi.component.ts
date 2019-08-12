@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { FinalisasiService } from 'src/app/services/finalisasi.service';
+import { PembayaranService } from '../../../services/pembayaran.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { FinalisasiService } from 'src/app/services/finalisasi.service';
   templateUrl: './finalisasi.component.html',
   styleUrls: ['./finalisasi.component.scss']
 })
-export class FinalisasiComponent implements OnInit {
+export class FinalisasiComponent implements OnInit, OnDestroy {
 
   getAllUnpaidGuru= [];
   getAllUnpaidTeam= [];
@@ -18,7 +19,9 @@ export class FinalisasiComponent implements OnInit {
   private subscription: Subscription;
   schoolId: any;
 
-  constructor(public FinalisasiService: FinalisasiService, public router: Router) { 
+  bills: any;
+
+  constructor(public FinalisasiService: FinalisasiService, public router: Router, public pembayaran: PembayaranService) { 
     this.schoolId = JSON.parse(localStorage.getItem('schoolId'));
     let contest = 1;
     let student = 3;
@@ -27,6 +30,15 @@ export class FinalisasiComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.subscription = this.pembayaran.getAllBills(this.schoolId).subscribe(res => {
+      this.bills = res.bills;
+    },
+      err => console.log(err)
+    );
+  }
+
+  ngOnDestroy() {
+    
   }
 
   getAllUnpaidGuruBySchoolId(id){
@@ -67,6 +79,19 @@ export class FinalisasiComponent implements OnInit {
     return this.formatPrice(total);  
   }
 
+  checkBill() {
+    let status: boolean = true;
+    this.bills.forEach(bill => {
+      console.log(bill);
+        if(bill.payment.status === 'waiting') {
+          status = false;
+        }
+      }
+    )
+    console.log(status);
+    return status;
+  }
+
   generatePayment() {
     if(confirm('Apakah Anda telah yakin untuk melakukan pembayaran?')) {
       let type = {
@@ -74,16 +99,21 @@ export class FinalisasiComponent implements OnInit {
         "school": this.schoolId
       }
 
-      this.FinalisasiService.generatePayment(type).subscribe(res => {
-        alert('Pendaftaran telah dikonfirmasi, mohon membayar pada VA (Virtual Account) yang telah tersedia pada halaman selanjutnya.');
-        console.log(res);
+      if(this.checkBill()) {
+        this.FinalisasiService.generatePayment(type).subscribe(res => {
+          alert('Pendaftaran telah dikonfirmasi, mohon membayar pada VA (Virtual Account) yang telah tersedia pada halaman selanjutnya.');
+          this.router.navigate(['/admin/pembayaran']);
+        },
+          err => {
+            console.log(err);
+            alert('Gagal melakukan konfirmasi pendaftaran, harap hubungi Admin.');
+          }
+        );
+
+      } else {
+        alert('Tidak dapat melakukan finalisasi. Harap membayar tagihan sebelumnya terlebih dahulu pada VA yang tertera.');
         this.router.navigate(['/admin/pembayaran']);
-      },
-        err => {
-          console.log(err);
-          alert('Gagal melakukan konfirmasi pendaftaran, harap hubungi Admin.');
-        }
-      );
+      }
 
     }
   }
