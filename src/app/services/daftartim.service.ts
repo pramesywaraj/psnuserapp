@@ -22,6 +22,7 @@ export class DaftartimService {
  }
 
  teamData = null;
+ availStudent = null;
  contest = 1;
  student = 3;
 
@@ -74,6 +75,16 @@ export class DaftartimService {
    let teamData = JSON.parse(window.localStorage.getItem('teamData'));
    return teamData;
  }
+
+ public storeAvailStudent(availStudent) {
+  window.localStorage.setItem('availStudent', JSON.stringify(availStudent));
+  this.availStudent = availStudent;
+}
+
+public loadAvailStudent() {
+  let availStudent = JSON.parse(window.localStorage.getItem('availStudent'));
+  return availStudent;
+}
 
  public editCompleted() {
    this.teamData = null;

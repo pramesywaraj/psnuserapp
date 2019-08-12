@@ -1,3 +1,54 @@
-<p>
-  edittim works!
-</p>
+
+
+<!-- Daftar Peserta Start -->
+<section id="psn-tim">
+  <div class="container">
+    <div class="card-grid" *ngIf="dataStudent">
+
+      <mat-card>
+        <mat-tab-group>          
+          <!-- Daftar Guru Pendamping Start -->
+          <mat-tab label="Ubah Data Tim"> 
+            <!-- Card Start -->
+            <mat-card>
+              <mat-card-title class="title">
+                Ubah Data Tim
+              </mat-card-title>
+
+              <small *ngIf="dataStudent?.length === 0" style="color: red">Seluruh siswa Anda telah masuk ke dalam tim. Harap tambah siswa terlebih dahulu apabila ingin menambahkan tim.</small>
+
+              <form [formGroup]="daftarTeam" (ngSubmit)="editTeamRegistration()">
+                <div class="form-container">
+                  <mat-form-field>
+                    <input class="input-form" formControlName="name" matInput placeholder="Nama Tim">
+                  </mat-form-field>              
+                  
+                  <mat-form-field>
+                    <mat-select placeholder="Pilih lomba" formControlName="contest" (selectionChange)="changeStudentsField($event)" [disabled]="dataLomba">
+                      <mat-option *ngFor="let lomba of dataLomba" value="{{lomba._id}}">{{lomba?.name}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  
+                  <mat-form-field>
+                    <mat-select placeholder="Pilih Anggota Tim" formControlName="student" multiple (selectionChange)="checkSelected($event)" [disabled]="dataStudent?.length === 0">
+                      <mat-option *ngFor="let student of dataStudent" value="{{student._id}}">{{student?.name}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <button [disabled]="!daftarTeam.valid" class="submit-button" type="submit">
+                    <span>Ubah Data Team</span>
+                  </button>
+                </div>    
+              </form>
+              
+            </mat-card>    
+            <!-- Card End -->
+          </mat-tab>
+          <!-- Daftar Guru Pendamping End -->
+        </mat-tab-group>
+      </mat-card>          
+      
+    </div>
+  </div>
+</section>
+<!-- Daftar Peserta End -->

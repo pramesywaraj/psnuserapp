@@ -32,7 +32,6 @@ export class DaftarlombaComponent implements OnInit {
       (data) => {
         this.daftarLomba = data.contests;
         if(data.status == 200) {
-          console.log("Cek Data : ", this.daftarLomba);
         }
       },
       err => {

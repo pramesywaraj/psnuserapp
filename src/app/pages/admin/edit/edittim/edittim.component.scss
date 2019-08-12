@@ -1,0 +1,99 @@
+#psn-tim{
+    overflow: auto;
+}
+
+#psn-tim .container{
+    width: 80vw;
+    margin: 2vh auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+#psn-tim .title{
+    padding-top: 3vh;
+    text-align: center;
+}
+
+#psn-tim table {
+    width: 100%;
+}  
+
+// #psn-tim .table-nested{
+//     display: inline-block;
+// }
+
+#psn-tim .table-nested:after{
+    content: ', ';
+    padding-right: 1vw;
+    display: inline-block;
+}
+
+#psn-tim .table-nested p:last-of-type{
+    content: '';
+    padding-right: 1vw;
+    display: inline-block;
+}
+
+#psn-tim .form-tim{
+    width: 100vw;
+}
+
+#psn-tim .form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#psn-tim .submit-button{
+    width: 20vw;
+    height: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+    background: none;
+    border: solid 2px #3f51b5;
+}
+
+#psn-tim .submit-button:hover{
+    background-color: #3f51b5;
+    color: aliceblue;
+    transition: 0.5s;
+}
+
+#psn-tim .submit-button span{
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    font-size: 1.5em;
+}
+
+#psn-tim .edit-button{
+    font-size: 1em;
+    width: 6vw;
+    height: 3vh;
+    background: none;
+    border: solid 1px #87f779;
+    color: #87f779;
+    border-radius: 10px;
+}
+
+#psn-tim .edit-button:hover{
+    background: #87f779;
+    color: aliceblue;
+
+    transition: 0.5s;
+}
+
+#psn-tim .delete-button{
+    font-size: 1em;
+    width: 6vw;
+    height: 3vh;
+    background: none;
+    border: solid 1px #f9787b;
+    color: #f9787b;
+    border-radius: 10px;
+}
+
+#psn-tim .delete-button:hover{
+    background: #f9787b;
+    color: aliceblue;
+
+    transition: 0.5s;
+}

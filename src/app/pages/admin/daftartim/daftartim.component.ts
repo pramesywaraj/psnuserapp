@@ -65,6 +65,7 @@ export class DaftartimComponent implements OnInit {
     this.Daftarpeserta.getAvailStudent(id).subscribe(
       (data) => {
         this.dataStudent = data.students;
+        this.DaftartimService.storeAvailStudent(data);
       },
       err => {
         console.log("err", err);
@@ -95,16 +96,18 @@ export class DaftartimComponent implements OnInit {
     }
   }
 
-
-
   postTeamRegistration() {
     console.log(this.daftarTeam.value);
     if(this.daftarTeam.value.student.length > this.maxSelected) {
       alert('Perhatian! Siswa yang dipilih melebihi maksimum siswa dalam satu tim. Harap hanya memilih ' + this.maxSelected + ' orang saja.');
-    } else if(this.daftarTeam.value.student.length !== this.maxSelected) {
+    } 
+    
+    else if(this.daftarTeam.value.student.length !== this.maxSelected) {
       let num: number = this.maxSelected - this.daftarTeam.value.students.length;
       alert('Perhatian! Harap memilih ' + num + ' orang lagi.');
-    } else {
+    } 
+    
+    else {
       this.subscription = this.DaftartimService.postTeamRegistration(this.daftarTeam.value).subscribe((data) => {
         alert("Pendaftaran berhasil");
         window.location.reload();
