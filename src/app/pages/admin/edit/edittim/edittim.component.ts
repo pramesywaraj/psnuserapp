@@ -18,7 +18,8 @@ export class EdittimComponent implements OnInit {
   dataLomba: any;
   dataStudent: any;
   teamData: any;
-
+  
+  availDataStudent: [];
   getAllTeam: [];
   daftarTeam: FormGroup;
 
@@ -63,7 +64,22 @@ export class EdittimComponent implements OnInit {
     this.DaftarpesertaService.getAvailStudent(id).subscribe(
       (data) => {
         this.dataStudent = data.students;
-        // this.dataStudent.push(this.teamData);
+        console.log("cek data : ", this.dataStudent);
+        console.log("anggota terdaftar : ", this.teamData.student);
+        let i = 0;
+        let temp = this.teamData;
+        for (i=0; i<temp.student.length;i++) {
+          console.log(i);
+          console.log("Data loop : ", temp.student[i]);
+          let id = temp.student[i]._id;
+          let email = temp.student[i].email;
+          let name = temp.student[i].name;
+          let phone = temp.student[i].phone;
+          let school = temp.student[i].school;
+          let team = temp.student[i].team;
+        
+          this.dataStudent.push({"_id": id, "email": email, "name": name, "phone": phone, "school": school,"team": team})
+        }        
         this.DaftarteamService.storeAvailStudent(data);
       },
       err => {
