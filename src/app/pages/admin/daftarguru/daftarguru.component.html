@@ -89,7 +89,7 @@
               <form [formGroup]="daftarGuru" (ngSubmit)="postTeachersRegistration()">
                 <div class="form-container">
                   <mat-form-field>
-                    <input class="input-form" formControlName="name" matInput placeholder="Nama Pendamping Beserta Gelar. Contoh: Pramesywara Jembar Panalar, SKOMP" [formControl]="name" required>
+                    <input class="input-form" formControlName="name" matInput placeholder="Nama & Gelar" [formControl]="name" required>
                   </mat-form-field>              
                   <mat-form-field>
                     <input class="input-form" formControlName="NIP" matInput placeholder="NIP" [formControl]="NIP" required>
