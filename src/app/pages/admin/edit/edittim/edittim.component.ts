@@ -63,6 +63,7 @@ export class EdittimComponent implements OnInit {
     this.DaftarpesertaService.getAvailStudent(id).subscribe(
       (data) => {
         this.dataStudent = data.students;
+        // this.dataStudent.push(this.teamData);
         this.DaftarteamService.storeAvailStudent(data);
       },
       err => {
