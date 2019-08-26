@@ -170,6 +170,38 @@
 
         </mat-tab-group>
 
+        <mat-card-footer class="mat-footer">
+          <div class="container">
+            <p>Catatan: </p>
+            <p>Guru pendamping akan dikenakan biaya sebesar Rp. 50.000/guru bila mengikuti ketentuan berikut :</p>
+            <ul>
+              <li>
+                1-5 Orang Peserta per Sekolah : 1 Orang Guru Pendamping
+              </li>
+              <li>
+                6-15 Orang Peserta per Sekolah : 2 Orang Guru Pendamping (Maksimal)
+              </li>
+              <li>
+                16-30 Orang Peserta per Sekolah : 3 Orang Guru Pendamping (Maksimal)
+              </li>
+              <li>
+                >30 Orang Peserta per Sekolah : 4 Orang Guru Pendamping (Maksimal)
+              </li>
+            </ul>
+            <p>Apabila guru pendamping yang mendaftar dan datang ke acara melebihi ketentuan maka akan dikenakan biaya tambahan sebesar Rp. 100.000/guru</p>
+            <p></p>
+          </div>
+          <!-- <div class="container" style="margin: 0% auto;">
+            <button
+              [disabled]="getAllUnpaidGuru.length === 0 && getAllUnpaidTeam.length === 0"
+              mat-raised-button 
+              style="background-color: rgb(28, 208, 28); color: white;" 
+              (click)="generatePayment()">
+              Lakukan Pembayaran
+            </button>
+          </div> -->
+        </mat-card-footer>
+  
       </mat-card>          
     </div>
   </div>
