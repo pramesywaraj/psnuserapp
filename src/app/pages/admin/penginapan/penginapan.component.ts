@@ -15,7 +15,8 @@ import { DaftarguruService } from '../../../services/daftarguru.service';
 export class PenginapanComponent implements OnInit {
 
   indexNumber: number;
-  name: any;
+  nameLodging: any;
+  nameBooked: any;
   quota: any;
   currentQuota: any;
   pricePerNight: any;
@@ -27,6 +28,7 @@ export class PenginapanComponent implements OnInit {
   accommodationId: any;
 
   daftarPenginapan: [];
+  getAllLodgingBooks: [];
   getAllTeacher: [];
   getAllStudent: [];
 
@@ -34,13 +36,15 @@ export class PenginapanComponent implements OnInit {
 
   private subscription: Subscription;
 
-  displayedColumns: string[] = ['indexNumber', 'name', 'quota', 'currentQuota', 'pricePerNight'];
+  displayedColumns: string[] = ['indexNumber', 'nameLodging', 'quota', 'currentQuota', 'pricePerNight'];
+  displayedbooks: string[] = ['indexNumber', 'nameLodging', 'userType', 'nameBooked', 'delete'];
 
   constructor(private formBuilder: FormBuilder, public DaftarpenginapanService: PenginapanService, public router: Router, public DaftarpesertaService: DaftarpesertaService, public DaftarguruService: DaftarguruService) { 
     const schoolId = JSON.parse(localStorage.getItem('schoolId'));
     this.getAllGuruBySchoolId(schoolId);
     this.getAllPesertaBySchoolId(schoolId);
     this.getAllLodgings();
+    this.getAllLodgingsBooks();
     this.userType = '';
     this.daftarPenginapanAll = this.formBuilder.group(
       {
@@ -92,6 +96,19 @@ export class PenginapanComponent implements OnInit {
     )
   }
 
+  getAllLodgingsBooks(){
+    this.DaftarpenginapanService.getAllBooks().subscribe(
+      (data) => {
+        this.getAllLodgingBooks = data.bookings;
+        console.log("Check All Booking : ", this.getAllLodgingBooks);
+      },
+      err => {
+        console.log("err", err);
+        // do a function here
+      }
+    )
+  }
+
   getAllGuruBySchoolId(id){
     this.DaftarguruService.getAllDaftarGuru(id).subscribe(
       (data) => {
@@ -128,7 +145,7 @@ export class PenginapanComponent implements OnInit {
       console.log("Check New Data : ", this.daftarPenginapanAll.value);
       this.subscription = this.DaftarpenginapanService.postLodgingRegistration(this.daftarPenginapanAll.value).subscribe((data) => {
         alert("Pendaftaran Penginapan Guru berhasil");
-        // window.location.reload();
+        window.location.reload();
       },
       err => {
         console.log('err', err);
@@ -147,7 +164,7 @@ export class PenginapanComponent implements OnInit {
       console.log("Check New Data : ", this.daftarPenginapanAll.value);
       this.subscription = this.DaftarpenginapanService.postLodgingRegistration(this.daftarPenginapanAll.value).subscribe((data) => {
         alert("Pendaftaran Penginapan Peserta berhasil");
-        // window.location.reload();
+        window.location.reload();
       },
       err => {
         console.log('err', err);
@@ -172,6 +189,26 @@ export class PenginapanComponent implements OnInit {
   formatPrice(value) {
     let val = (value/1)
     return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+  }
+
+  deleteItem(id){
+    this.subscription = this.DaftarpenginapanService.deleteLodging(id).subscribe(data => {
+      alert("Daftar Pesanan berhasil Dihapus");
+      window.location.reload();
+    },
+    err => {
+      console.log('err', err);
+      if (err.status === 400){
+        alert("Daftar Pesanan tidak dapat dihapus karena sudah dibayar");
+      }
+      else if (err.status === 500){
+        alert("Email atau username sudah terdaftar");
+      }
+      else if (err.status !== 500){
+        alert("Gagal Menghapus");
+      }
+
+    })
   }
 
 }

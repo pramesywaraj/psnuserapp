@@ -110,3 +110,19 @@
     display: inline-flex;
 }
 
+#psn-penginapan .delete-button{
+    font-size: 1em;
+    width: 6vw;
+    height: 3vh;
+    background: none;
+    border: solid 1px #f9787b;
+    color: #f9787b;
+    border-radius: 10px;
+}
+
+#psn-penginapan .delete-button:hover{
+    background: #f9787b;
+    color: aliceblue;
+
+    transition: 0.5s;
+}
