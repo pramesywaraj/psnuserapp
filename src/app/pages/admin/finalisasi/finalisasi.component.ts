@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { FinalisasiService } from 'src/app/services/finalisasi.service';
 import { PembayaranService } from '../../../services/pembayaran.service';
+import { PenginapanService } from 'src/app/services/penginapan.service';
 
 
 @Component({
@@ -13,6 +13,13 @@ import { PembayaranService } from '../../../services/pembayaran.service';
 })
 export class FinalisasiComponent implements OnInit, OnDestroy {
 
+  indexNumber: number;
+  name: any;
+  quota: any;
+  currentQuota: any;
+  pricePerNight: any;
+
+  getAllUnpaidLodging= [];
   getAllUnpaidGuru= [];
   getAllUnpaidTeam= [];
 
@@ -21,12 +28,13 @@ export class FinalisasiComponent implements OnInit, OnDestroy {
 
   bills: any;
 
-  constructor(public FinalisasiService: FinalisasiService, public router: Router, public pembayaran: PembayaranService) { 
+  constructor(public FinalisasiService: FinalisasiService, public router: Router, public pembayaran: PembayaranService, public DaftarpenginapanService: PenginapanService) { 
     this.schoolId = JSON.parse(localStorage.getItem('schoolId'));
     let contest = 1;
     let student = 3;
     this.getAllUnpaidGuruBySchoolId(this.schoolId);
     this.getAllUnpaidTeamBySchoolId(this.schoolId, contest, student);
+    this.getAllLodgings();
   }
 
   ngOnInit() {
@@ -57,6 +65,18 @@ export class FinalisasiComponent implements OnInit, OnDestroy {
     this.FinalisasiService.getAllUnpaidTim(id, contest, student).subscribe(
       (data) => {
         this.getAllUnpaidTeam = data.teams;       
+      },
+      err => {
+        console.log("err", err);
+        // do a function here
+      }
+    )
+  }
+
+  getAllLodgings(){
+    this.DaftarpenginapanService.getAllAccommodation().subscribe(
+      (data) => {
+        this.getAllUnpaidLodging = data.accommodations;
       },
       err => {
         console.log("err", err);

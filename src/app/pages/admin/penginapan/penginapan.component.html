@@ -12,7 +12,7 @@
               <!-- Card Start -->
               <mat-card>
                 <mat-card-title class="title">
-                  Daftar penginapan
+                  Daftar penginapan Tersedia
                 </mat-card-title>
   
                 <br>
@@ -81,7 +81,81 @@
               <!-- Card End -->
             </mat-tab>
             <!-- Daftar Guru dan Murid End -->
+
+            <!-- List Guru dan Murid Start -->
+            <mat-tab label="Pesan penginapan"> 
+              <!-- Card Start -->
+              <mat-card>
+                <mat-card-title class="title">
+                  Pesan Penginapan
+                </mat-card-title>
   
+                <br>
+  
+                <small *ngIf="getAllStudent?.length === 0" style="color: red">Daftarkan peserta terlebih dahulu sebelum mendaftar penginapan</small>
+                <small *ngIf="getAllTeacher?.length === 0" style="color: red">Daftarkan guru terlebih dahulu sebelum mendaftar penginapan</small>
+
+                <form [formGroup]="daftarPenginapanAll" (ngSubmit)="postLodgingRegistration()">
+                  <div class="form-container">
+                    <mat-form-field>
+                      <mat-select placeholder="Pilih Tipe Pendaftar" formControlName="userType">
+                        <mat-option value="teacher">Guru</mat-option>
+                        <mat-option value="student">Peserta</mat-option>
+                      </mat-select>
+                    </mat-form-field>              
+                    
+                    <mat-form-field *ngIf="daftarPenginapanAll.value.userType === 'teacher'">
+                      <mat-select placeholder="Pilih Guru yang ingin didaftarkan" formControlName="teacher" [disabled]="getAllTeacher?.length === 0">
+                        <mat-option *ngFor="let teacher of getAllTeacher" value="{{teacher._id}}">{{teacher.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field *ngIf="daftarPenginapanAll.value.userType === 'student'">
+                      <mat-select placeholder="Pilih Peserta yang ingin didaftarkan" formControlName="student" [disabled]="getAllStudent?.length === 0">
+                        <mat-option *ngFor="let student of getAllStudent" value="{{student._id}}">{{student.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                      <mat-select placeholder="Pilih Penginapan" formControlName="accommodation">
+                        <mat-option *ngFor="let penginapan of daftarPenginapan" value="{{penginapan._id}}">{{penginapan.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                      
+                    <button class="submit-button" type="submit">
+                      <span>Pesan</span>
+                    </button>
+                  </div>    
+                </form>
+
+                <mat-card-footer class="mat-footer">
+                  <div class="container">
+                    <p>Catatan: </p>
+                    <p>Pembayaran Penginapan Belum Dibuka</p>
+                    <!-- <ul>
+                      <li>
+                        1-5 Orang Peserta per Sekolah : 1 Orang Guru Pendamping
+                      </li>
+                      <li>
+                        6-15 Orang Peserta per Sekolah : 2 Orang Guru Pendamping (Maksimal)
+                      </li>
+                      <li>
+                        16-30 Orang Peserta per Sekolah : 3 Orang Guru Pendamping (Maksimal)
+                      </li>
+                      <li>
+                        >30 Orang Peserta per Sekolah : 4 Orang Guru Pendamping (Maksimal)
+                      </li>
+                    </ul>
+                    <p>Apabila guru pendamping yang mendaftar dan datang ke acara melebihi ketentuan maka akan dikenakan biaya tambahan sebesar Rp. 100.000/guru</p>
+                    <p></p> -->
+                  </div>
+                </mat-card-footer>
+
+  
+              </mat-card>    
+              <!-- Card End -->
+            </mat-tab>
+            <!-- Daftar Guru dan Murid End -->            
           </mat-tab-group>
         </mat-card>          
         

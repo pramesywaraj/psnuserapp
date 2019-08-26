@@ -20,6 +20,12 @@ export class PenginapanService {
     })
   }
 
+  lodgingData = null;
+  availTeacher = null;
+  availStudent = null;
+  contest = 1;
+  student = 3; 
+
   public getAllAccommodation(): Observable<any> {
     return this.http.get<any>(
       this.configService.baseUrl + 'accommodation/', this.httpOptions)
@@ -30,5 +36,50 @@ export class PenginapanService {
       )
     )
   }
+
+  public postLodgingRegistration(data): Observable<any> {
+    return this.http.post<any>(
+      this.configService.baseUrl + 'booking', JSON.stringify(data), this.httpOptions)
+      .pipe(
+        map(resp => {
+            return resp;
+        })
+      )
+  }   
+
+  public deleteLodging(id): Observable<any> {
+    return this.http.delete<any>(
+      this.configService.baseUrl + 'booking/' + id, this.httpOptions)
+      .pipe(
+        map(resp => {
+            return resp;
+        })
+      )
+  }  
+    
+  public storeAvailTeacher(availTeacher) {
+   window.localStorage.setItem('availTeacher', JSON.stringify(availTeacher));
+   this.availTeacher = availTeacher;
+ }
+ 
+  public loadAvailTeacher() {
+    let availPerson = JSON.parse(window.localStorage.getItem('availPerson'));
+    return availPerson;
+  }
+
+  public storeAvailStudent(availStudent) {
+    window.localStorage.setItem('availStudent', JSON.stringify(availStudent));
+    this.availStudent = availStudent;
+  }
+
+  public loadAvailStudent() {
+    let availStudent = JSON.parse(window.localStorage.getItem('availStudent'));
+    return availStudent;
+  }
+
+  public editCompleted() {
+    this.lodgingData = null;
+    localStorage.removeItem("lodgingData");
+  } 
  
 }

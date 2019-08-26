@@ -8,14 +8,14 @@
       <mat-card>
         <mat-tab-group>
           <!-- List Finalisasi Start -->
-          <mat-tab label="Finalisasi Rincian Pembayaran"> 
+          <mat-tab label="Finalisasi Rincian Pembayaran Peserta dan Guru"> 
             <!-- Card Start -->
             <mat-card>
               <div style="text-align: center;">
                   <img src="../../../../assets/img/logo-new-size.png" alt="logo-psn" style="width: 30vw; height: auto;">
               </div>
               <mat-card-title class="title">
-                Finalisasi Rincian Pembayaran
+                Finalisasi Rincian Pembayaran Peserta dan Guru
               </mat-card-title>
 
               <br>
@@ -70,43 +70,106 @@
 
             </mat-card>    
             <!-- Card End -->
+
+            <mat-card-footer class="mat-footer">
+              <div class="container">
+                <p>Catatan: </p>
+                <p>Guru pendamping akan dikenakan biaya sebesar Rp. 50.000/guru bila mengikuti ketentuan berikut :</p>
+                <ul>
+                  <li>
+                    1-5 Orang Peserta per Sekolah : 1 Orang Guru Pendamping
+                  </li>
+                  <li>
+                    6-15 Orang Peserta per Sekolah : 2 Orang Guru Pendamping (Maksimal)
+                  </li>
+                  <li>
+                    16-30 Orang Peserta per Sekolah : 3 Orang Guru Pendamping (Maksimal)
+                  </li>
+                  <li>
+                    >30 Orang Peserta per Sekolah : 4 Orang Guru Pendamping (Maksimal)
+                  </li>
+                </ul>
+                <p>Apabila guru pendamping yang mendaftar dan datang ke acara melebihi ketentuan maka akan dikenakan biaya tambahan sebesar Rp. 100.000/guru</p>
+                <p></p>
+              </div>
+              <!-- <div class="container" style="margin: 0% auto;">
+                <button
+                  [disabled]="getAllUnpaidGuru.length === 0 && getAllUnpaidTeam.length === 0"
+                  mat-raised-button 
+                  style="background-color: rgb(28, 208, 28); color: white;" 
+                  (click)="generatePayment()">
+                  Lakukan Pembayaran Terhadap Peserta dan Guru
+                </button>
+              </div> -->
+            </mat-card-footer>
+                
+          </mat-tab>
+          <!-- Daftar Guru dan Murid End -->
+
+          <!-- List Finalisasi Start -->
+          <mat-tab label="Finalisasi Rincian Pembayaran Penginapan"> 
+            <!-- Card Start -->
+            <mat-card>
+              <div style="text-align: center;">
+                  <img src="../../../../assets/img/logo-new-size.png" alt="logo-psn" style="width: 30vw; height: auto;">
+              </div>
+              <mat-card-title class="title">
+                Finalisasi Rincian Pembayaran Penginapan
+              </mat-card-title>
+
+              <br>
+
+              <p class="table-title">Rincian Penginapan</p>
+              <hr>
+              <mat-grid-list class="section-title" cols="4" rowHeight="40px">
+                <div>
+                  <mat-grid-tile><div class="table-text-title">Nama Penginapan</div></mat-grid-tile>
+                  <mat-grid-tile><div class="table-text-title">Jumlah (Orang)</div></mat-grid-tile>
+                  <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                  <mat-grid-tile><div class="table-text-title">Harga</div></mat-grid-tile>    
+                </div>
+                <!-- <div *ngFor="let data of getAllUnpaidLodging">
+                  <mat-grid-tile><div class="table-text name">{{data?.name}}</div></mat-grid-tile>
+                  <mat-grid-tile><div class="table-text lomba">({{data?.contest.name}})</div></mat-grid-tile>
+                  <mat-grid-tile><div class="table-text-title">({{data?.contest.memberPerTeam}})</div></mat-grid-tile>
+                  <mat-grid-tile><div class="table-text price">Rp. {{formatPrice(data?.contest.pricePerStudent * data?.contest.memberPerTeam)}}</div></mat-grid-tile>    
+                </div> -->
+              </mat-grid-list>
+
+              <!-- <p class="table-title section-last">Total Pembayaran</p>
+              <hr> -->
+              <!-- <mat-grid-list class="section-title" cols="4" rowHeight="40px" *ngIf="getAllUnpaidTeam">
+                <mat-grid-tile><div class="table-text name last">Total</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text-title">&nbsp;</div></mat-grid-tile>
+                <mat-grid-tile><div class="table-text price last">Rp. {{totalPrice()}}</div></mat-grid-tile>
+              </mat-grid-list>
+               -->
+              <hr>
+
+            </mat-card>    
+            <!-- Card End -->
+            <mat-card-footer class="mat-footer">
+              <div class="container">
+                <p>Catatan: </p>
+                <p>Lakukanlah pembayaran terhadap peserta dan guru terlebih dahulu setelah itu barulah melakukan pembayaran terhadap penginapan</p>
+              </div>
+              <div class="container" style="margin: 0% auto;">
+                <!-- <button
+                  [disabled]="getAllUnpaidGuru.length === 0 && getAllUnpaidTeam.length === 0"
+                  mat-raised-button 
+                  style="background-color: rgb(28, 208, 28); color: white;" 
+                  (click)="generatePayment()">
+                  Lakukan Pembayaran Terhadap Peserta dan Guru
+                </button> -->
+              </div>
+            </mat-card-footer>
+    
           </mat-tab>
           <!-- Daftar Guru dan Murid End -->
 
         </mat-tab-group>
 
-        <mat-card-footer class="mat-footer">
-          <div class="container">
-            <p>Catatan: </p>
-            <p>Guru pendamping akan dikenakan biaya sebesar Rp. 50.000/guru bila mengikuti ketentuan berikut :</p>
-            <ul>
-              <li>
-                1-5 Orang Peserta per Sekolah : 1 Orang Guru Pendamping
-              </li>
-              <li>
-                6-15 Orang Peserta per Sekolah : 2 Orang Guru Pendamping (Maksimal)
-              </li>
-              <li>
-                16-30 Orang Peserta per Sekolah : 3 Orang Guru Pendamping (Maksimal)
-              </li>
-              <li>
-                >30 Orang Peserta per Sekolah : 4 Orang Guru Pendamping (Maksimal)
-              </li>
-            </ul>
-            <p>Apabila guru pendamping yang mendaftar dan datang ke acara melebihi ketentuan maka akan dikenakan biaya tambahan sebesar Rp. 100.000/guru</p>
-            <p></p>
-          </div>
-          <div class="container" style="margin: 0% auto;">
-            <button
-              [disabled]="getAllUnpaidGuru.length === 0 && getAllUnpaidTeam.length === 0"
-              mat-raised-button 
-              style="background-color: rgb(28, 208, 28); color: white;" 
-              (click)="generatePayment()">
-              Lakukan Pembayaran
-            </button>
-          </div>
-        </mat-card-footer>
-  
       </mat-card>          
     </div>
   </div>
