@@ -19,7 +19,7 @@ export class FinalisasiComponent implements OnInit, OnDestroy {
   currentQuota: any;
   pricePerNight: any;
 
-  getAllUnpaidLodging= [];
+  getAllNotFinalLodging= [];
   getAllUnpaidGuru= [];
   getAllUnpaidTeam= [];
 
@@ -34,7 +34,7 @@ export class FinalisasiComponent implements OnInit, OnDestroy {
     let student = 3;
     this.getAllUnpaidGuruBySchoolId(this.schoolId);
     this.getAllUnpaidTeamBySchoolId(this.schoolId, contest, student);
-    this.getAllLodgings();
+    this.getAllNotFinalLodgings();
   }
 
   ngOnInit() {
@@ -73,16 +73,20 @@ export class FinalisasiComponent implements OnInit, OnDestroy {
     )
   }
 
-  getAllLodgings(){
-    this.DaftarpenginapanService.getAllAccommodation().subscribe(
+  getAllNotFinalLodgings(){
+    this.DaftarpenginapanService.getAllNotFinalBooks().subscribe(
       (data) => {
-        this.getAllUnpaidLodging = data.accommodations;
+        this.getAllNotFinalLodging = data.bookings;
       },
       err => {
         console.log("err", err);
         // do a function here
       }
     )
+  }
+
+  indexing(i) {
+    return i+=1;
   }
 
   formatPrice(value) {
@@ -112,7 +116,7 @@ export class FinalisasiComponent implements OnInit, OnDestroy {
     return status;
   }
 
-  generatePayment() {
+  generatePaymentRegistration() {
     if(confirm('Apakah Anda telah yakin untuk melakukan pembayaran?')) {
       let type = {
         "type": "registration",
@@ -127,6 +131,32 @@ export class FinalisasiComponent implements OnInit, OnDestroy {
           err => {
             console.log(err);
             alert('Gagal melakukan konfirmasi pendaftaran, harap hubungi Admin.');
+          }
+        );
+
+      } else {
+        alert('Tidak dapat melakukan finalisasi. Harap membayar tagihan sebelumnya terlebih dahulu pada VA yang tertera.');
+        this.router.navigate(['/admin/pembayaran']);
+      }
+
+    }
+  }
+
+  generatePaymentAccommodation() {
+    if(confirm('Apakah Anda telah yakin untuk melakukan pembayaran Akomodasi Penginapan?')) {
+      let type = {
+        "type": "accommodation",
+        "school": this.schoolId
+      }
+
+      if(this.checkBill()) {
+        this.FinalisasiService.generatePayment(type).subscribe(res => {
+          alert('Pendaftaran telah dikonfirmasi, mohon membayar pada VA (Virtual Account) yang telah tersedia pada halaman selanjutnya.');
+          this.router.navigate(['/admin/pembayaran']);
+        },
+          err => {
+            console.log(err);
+            alert('Gagal melakukan konfirmasi pendaftaran penginapan, harap hubungi Admin.');
           }
         );
 

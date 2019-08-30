@@ -33,6 +33,16 @@ export class DaftarpesertaService {
      )
  }
 
+  public getAllUnbookedDaftarPeserta(schoolId): Observable<any> {
+  return this.http.get<any>(
+    this.configService.baseUrl + 'students/unbooked-accommodation/school/' + schoolId, this.httpOptions)
+    .pipe(
+      map(resp => {
+        return resp;
+      })
+    )
+  }
+
  public getAvailStudent(schoolId): Observable<any> {
   return this.http.get<any>(
     this.configService.baseUrl + 'students/available/' + schoolId, this.httpOptions)

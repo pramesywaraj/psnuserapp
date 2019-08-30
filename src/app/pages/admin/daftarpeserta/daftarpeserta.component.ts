@@ -43,6 +43,7 @@ export class DaftarpesertaComponent implements OnInit, OnDestroy {
     this.DaftarpesertaService.getAllDaftarPeserta(id).subscribe(
       (data) => {
         this.getAllStudent = data.students;
+        console.log("Check Student : ", this.getAllStudent);
       },
       err => {
         console.log("err", err);

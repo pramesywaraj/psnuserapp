@@ -33,6 +33,16 @@ export class DaftarguruService {
       )
   }  
 
+  public getAllUnbookedDaftarGuru(id): Observable<any> {
+    return this.http.get<any>(
+      this.configService.baseUrl + 'teachers/unbooked-accommodation/school/' + id, this.httpOptions)
+      .pipe(
+        map(resp => {
+          return resp;
+        })
+      )
+  }  
+
   public postTeachersRegistration(data): Observable<any> {
     return this.http.post<any>(
       this.configService.baseUrl + 'teachers', JSON.stringify(data), this.httpOptions)

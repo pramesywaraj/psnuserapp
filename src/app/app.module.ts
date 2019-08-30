@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
-
+import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -100,6 +100,8 @@ import { OfferComponent } from './components/offer/offer.component';
     MatSelectModule,
     HttpClientModule,
     MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     // ScrollToModule.forRoot()
   ],
   providers: [],

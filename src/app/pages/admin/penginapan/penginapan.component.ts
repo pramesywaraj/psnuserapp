@@ -20,6 +20,9 @@ export class PenginapanComponent implements OnInit {
   quota: any;
   currentQuota: any;
   pricePerNight: any;
+  startDate: any;
+  duration: any;
+  durations: any;
 
   // Form Data
   userType: any;
@@ -37,12 +40,12 @@ export class PenginapanComponent implements OnInit {
   private subscription: Subscription;
 
   displayedColumns: string[] = ['indexNumber', 'nameLodging', 'quota', 'currentQuota', 'pricePerNight'];
-  displayedbooks: string[] = ['indexNumber', 'nameLodging', 'userType', 'nameBooked', 'delete'];
+  displayedbooks: string[] = ['indexNumber', 'nameLodging', 'userType', 'nameBooked', 'startDate', 'duration', 'delete'];
 
   constructor(private formBuilder: FormBuilder, public DaftarpenginapanService: PenginapanService, public router: Router, public DaftarpesertaService: DaftarpesertaService, public DaftarguruService: DaftarguruService) { 
     const schoolId = JSON.parse(localStorage.getItem('schoolId'));
-    this.getAllGuruBySchoolId(schoolId);
-    this.getAllPesertaBySchoolId(schoolId);
+    this.getAllUnbookedGuruBySchoolId(schoolId);
+    this.getAllUnbookedPesertaBySchoolId(schoolId);
     this.getAllLodgings();
     this.getAllLodgingsBooks();
     this.userType = '';
@@ -52,6 +55,8 @@ export class PenginapanComponent implements OnInit {
         teacher : [[], Validators.required],
         student : [[], Validators.required],
         accommodation : ['', Validators.required],
+        startDate: ['', Validators.required],
+        duration: [this.duration, Validators.required],
       }
     );  
     console.log("Check Value : ", this.daftarPenginapanAll.value.userType);
@@ -64,6 +69,8 @@ export class PenginapanComponent implements OnInit {
             userType : ['teacher', Validators.required],
             teacher : [[], Validators.required],
             accommodation : ['', Validators.required],
+            startDate: ['', Validators.required],
+            duration: [this.duration, Validators.required],
           }
         );  
       }
@@ -76,6 +83,8 @@ export class PenginapanComponent implements OnInit {
             userType : ['student', Validators.required],
             student : [[], Validators.required],
             accommodation : ['', Validators.required],
+            startDate: ['', Validators.required],
+            duration: [this.duration, Validators.required],
           }
         );  
       }
@@ -109,8 +118,8 @@ export class PenginapanComponent implements OnInit {
     )
   }
 
-  getAllGuruBySchoolId(id){
-    this.DaftarguruService.getAllDaftarGuru(id).subscribe(
+  getAllUnbookedGuruBySchoolId(id){
+    this.DaftarguruService.getAllUnbookedDaftarGuru(id).subscribe(
       (data) => {
         this.getAllTeacher = data.teachers;
         console.log("Check Daftar Guru : ", this.getAllTeacher);
@@ -122,8 +131,8 @@ export class PenginapanComponent implements OnInit {
     )
   }
 
-  getAllPesertaBySchoolId(id){
-    this.DaftarpesertaService.getAllDaftarPeserta(id).subscribe(
+  getAllUnbookedPesertaBySchoolId(id){
+    this.DaftarpesertaService.getAllUnbookedDaftarPeserta(id).subscribe(
       (data) => {
         this.getAllStudent = data.students;
         console.log("Check Daftar Peserta : ", this.getAllStudent);
@@ -149,7 +158,10 @@ export class PenginapanComponent implements OnInit {
       },
       err => {
         console.log('err', err);
-        if (err.status === 500){
+        if (err.status === 400){
+          alert("Data Sudah Terdaftar Tidak dapat Dihapus");
+        }
+        else if (err.status === 500){
           alert("Terjadi Kesalahan pada Server");
         }
         else if (err.status !== 500){

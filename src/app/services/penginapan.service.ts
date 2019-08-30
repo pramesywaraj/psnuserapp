@@ -48,6 +48,17 @@ export class PenginapanService {
     )
   }
 
+  public getAllNotFinalBooks(): Observable<any> {
+    return this.http.get<any>(
+      this.configService.baseUrl + 'booking/?isFinal=false', this.httpOptions)
+      .pipe(
+        map(resp => {
+          return resp;
+        }
+      )
+    )
+  }
+
   public postLodgingRegistration(data): Observable<any> {
     return this.http.post<any>(
       this.configService.baseUrl + 'booking', JSON.stringify(data), this.httpOptions)
