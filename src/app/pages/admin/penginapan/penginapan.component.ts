@@ -30,10 +30,14 @@ export class PenginapanComponent implements OnInit {
   studentId: any;
   accommodationId: any;
 
-  daftarPenginapan: [];
-  getAllLodgingBooks: [];
-  getAllTeacher: [];
-  getAllStudent: [];
+  daftarPenginapan:any =  [];
+  getAllLodgingBooks: any = [];
+  getAllTeacher: any = [];
+  getAllStudent: any = [];
+
+  showStudent: boolean;
+  showTeacher: boolean;
+  
 
   daftarPenginapanAll: FormGroup;
 
@@ -91,6 +95,19 @@ export class PenginapanComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.showStudent = false;
+    this.showTeacher = false;
+  }
+
+  changeType(val) {
+    if(val === 'teacher') {
+      this.showStudent = !this.showStudent;      
+      this.showTeacher = true;
+    } else {
+      this.showTeacher = !this.showTeacher;
+      this.showStudent = true;      
+    }
+    console.log("student and teacher", this.showStudent, this.showTeacher);
   }
 
   getAllLodgings(){

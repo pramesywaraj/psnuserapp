@@ -55,24 +55,7 @@
 
                 <mat-card-footer class="mat-footer">
                   <div class="container">
-                    <p>Catatan: </p>
-                    <p>Pembayaran Penginapan Belum Dibuka</p>
-                    <!-- <ul>
-                      <li>
-                        1-5 Orang Peserta per Sekolah : 1 Orang Guru Pendamping
-                      </li>
-                      <li>
-                        6-15 Orang Peserta per Sekolah : 2 Orang Guru Pendamping (Maksimal)
-                      </li>
-                      <li>
-                        16-30 Orang Peserta per Sekolah : 3 Orang Guru Pendamping (Maksimal)
-                      </li>
-                      <li>
-                        >30 Orang Peserta per Sekolah : 4 Orang Guru Pendamping (Maksimal)
-                      </li>
-                    </ul>
-                    <p>Apabila guru pendamping yang mendaftar dan datang ke acara melebihi ketentuan maka akan dikenakan biaya tambahan sebesar Rp. 100.000/guru</p>
-                    <p></p> -->
+            
                   </div>
                 </mat-card-footer>
 
@@ -146,24 +129,7 @@
 
                 <mat-card-footer class="mat-footer">
                   <div class="container">
-                    <p>Catatan: </p>
-                    <p>Pembayaran Penginapan Belum Dibuka</p>
-                    <!-- <ul>
-                      <li>
-                        1-5 Orang Peserta per Sekolah : 1 Orang Guru Pendamping
-                      </li>
-                      <li>
-                        6-15 Orang Peserta per Sekolah : 2 Orang Guru Pendamping (Maksimal)
-                      </li>
-                      <li>
-                        16-30 Orang Peserta per Sekolah : 3 Orang Guru Pendamping (Maksimal)
-                      </li>
-                      <li>
-                        >30 Orang Peserta per Sekolah : 4 Orang Guru Pendamping (Maksimal)
-                      </li>
-                    </ul>
-                    <p>Apabila guru pendamping yang mendaftar dan datang ke acara melebihi ketentuan maka akan dikenakan biaya tambahan sebesar Rp. 100.000/guru</p>
-                    <p></p> -->
+                  
                   </div>
                 </mat-card-footer>
 
@@ -183,13 +149,13 @@
   
                 <br>
   
-                <small *ngIf="getAllStudent?.length === 0" style="color: red">Daftarkan peserta terlebih dahulu sebelum mendaftar penginapan</small>
-                <small *ngIf="getAllTeacher?.length === 0" style="color: red">Daftarkan guru terlebih dahulu sebelum mendaftar penginapan</small>
+                <small *ngIf="getAllStudent?.length === 0 && showStudent" style="color: red">Peserta sudah dipesankan penginapan atau tidak ada peserta yang terdaftar sama sekali. Silahkan daftarkan peserta terlebih dahulu sebelum mendaftar penginapan</small>
+                <small *ngIf="getAllTeacher?.length === 0 && showTeacher" style="color: red">Guru sudah dipesankan penginapan atau tidak ada guru yang terdaftar sama sekali. Silahkan daftarkan guru terlebih dahulu sebelum mendaftar penginapan</small>
 
                 <form [formGroup]="daftarPenginapanAll" (ngSubmit)="postLodgingRegistration()">
                   <div class="form-container">
                     <mat-form-field>
-                      <mat-select placeholder="Pilih Tipe Pendaftar" formControlName="userType">
+                      <mat-select placeholder="Pilih Tipe Pendaftar" formControlName="userType" (selectionChange)="changeType($event.value)">
                         <mat-option value="teacher">Guru</mat-option>
                         <mat-option value="student">Peserta</mat-option>
                       </mat-select>
@@ -235,24 +201,7 @@
 
                 <mat-card-footer class="mat-footer">
                   <div class="container">
-                    <p>Catatan: </p>
-                    <p>Pembayaran Penginapan Belum Dibuka</p>
-                    <!-- <ul>
-                      <li>
-                        1-5 Orang Peserta per Sekolah : 1 Orang Guru Pendamping
-                      </li>
-                      <li>
-                        6-15 Orang Peserta per Sekolah : 2 Orang Guru Pendamping (Maksimal)
-                      </li>
-                      <li>
-                        16-30 Orang Peserta per Sekolah : 3 Orang Guru Pendamping (Maksimal)
-                      </li>
-                      <li>
-                        >30 Orang Peserta per Sekolah : 4 Orang Guru Pendamping (Maksimal)
-                      </li>
-                    </ul>
-                    <p>Apabila guru pendamping yang mendaftar dan datang ke acara melebihi ketentuan maka akan dikenakan biaya tambahan sebesar Rp. 100.000/guru</p>
-                    <p></p> -->
+                    
                   </div>
                 </mat-card-footer>
 

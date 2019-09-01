@@ -32,6 +32,7 @@ export class PembayaranComponent implements OnInit {
   getAllBillsBySchoolId(id){
     this.DaftarpembayaranService.getAllBills(id).subscribe(
       (data) => {
+        console.log(data.bills)
         this.daftarPembayaran = data.bills;
       },
       err => {
