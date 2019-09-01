@@ -162,48 +162,54 @@ export class PenginapanComponent implements OnInit {
   }
 
   postLodgingRegistration() {
-    console.log("Check User Type : ", this.daftarPenginapanAll.value.userType);
+    
+    this.daftarPenginapanAll.value.userType === 'teacher' ? this.daftarPenginapanAll.removeControl('student') : this.daftarPenginapanAll.removeControl('teacher');
 
-    if(this.daftarPenginapanAll.value.userType === "teacher"){
-      //Remove Atribute from FormGroup:
-      this.daftarPenginapanAll.removeControl('student');
+    if(this.daftarPenginapanAll.valid) {
 
-      console.log("Check New Data : ", this.daftarPenginapanAll.value);
-      this.subscription = this.DaftarpenginapanService.postLodgingRegistration(this.daftarPenginapanAll.value).subscribe((data) => {
-        alert("Pendaftaran Penginapan Guru berhasil");
-        window.location.reload();
-      },
-      err => {
-        console.log('err', err);
-        if (err.status === 400){
-          alert("Data Sudah Terdaftar Tidak dapat Dihapus");
-        }
-        else if (err.status === 500){
-          alert("Terjadi Kesalahan pada Server");
-        }
-        else if (err.status !== 500){
-          alert("Data anda Salah");
-        }
-      })
-    }
-    else{
-      //Remove Atribute from FormGroup:
-      this.daftarPenginapanAll.removeControl('teacher');
+      if(this.daftarPenginapanAll.value.userType === "teacher"){
+        //Remove Atribute from FormGroup:
+        this.daftarPenginapanAll.removeControl('student');
 
-      console.log("Check New Data : ", this.daftarPenginapanAll.value);
-      this.subscription = this.DaftarpenginapanService.postLodgingRegistration(this.daftarPenginapanAll.value).subscribe((data) => {
-        alert("Pendaftaran Penginapan Peserta berhasil");
-        window.location.reload();
-      },
-      err => {
-        console.log('err', err);
-        if (err.status === 500){
-          alert("Terjadi Kesalahan pada Server");
-        }
-        else if (err.status !== 500){
-          alert("Data anda Salah");
-        }
-      })
+        console.log("Check New Data : ", this.daftarPenginapanAll.value);
+        this.subscription = this.DaftarpenginapanService.postLodgingRegistration(this.daftarPenginapanAll.value).subscribe((data) => {
+          alert("Pendaftaran Penginapan Guru berhasil");
+          window.location.reload();
+        },
+        err => {
+          console.log('err', err);
+          if (err.status === 400){
+            alert("Data Sudah Terdaftar Tidak dapat Dihapus");
+          }
+          else if (err.status === 500){
+            alert("Terjadi Kesalahan pada Server");
+          }
+          else if (err.status !== 500){
+            alert("Data anda Salah");
+          }
+        })
+      }
+      else{
+        //Remove Atribute from FormGroup:
+        this.daftarPenginapanAll.removeControl('teacher');
+
+        console.log("Check New Data : ", this.daftarPenginapanAll.value);
+        this.subscription = this.DaftarpenginapanService.postLodgingRegistration(this.daftarPenginapanAll.value).subscribe((data) => {
+          alert("Pendaftaran Penginapan Peserta berhasil");
+          window.location.reload();
+        },
+        err => {
+          console.log('err', err);
+          if (err.status === 500){
+            alert("Terjadi Kesalahan pada Server");
+          }
+          else if (err.status !== 500){
+            alert("Data anda Salah");
+          }
+        })
+      }
+    } else {
+      alert("Harap melengkapi form yang belum terisi.");
     }
   }  
 

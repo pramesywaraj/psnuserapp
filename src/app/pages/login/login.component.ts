@@ -38,13 +38,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['admin/daftarlomba']);
     },
     err => {
-      console.log('err', err);
-      if (err.status === 400){
-        alert("User Tidak ditemukan");
-      }
-      else if (err.status !== 404){
-        alert("Data anda Salah");
-      }
+      console.log(err)
+      alert(err.error.message);
     })
   }  
 
