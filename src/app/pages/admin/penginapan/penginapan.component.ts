@@ -101,10 +101,14 @@ export class PenginapanComponent implements OnInit {
 
   changeType(val) {
     if(val === 'teacher') {
-      this.showStudent = !this.showStudent;      
+      if(this.showStudent) {
+        this.showStudent = !this.showStudent;      
+      }
       this.showTeacher = true;
     } else {
-      this.showTeacher = !this.showTeacher;
+      if(this.showTeacher) {
+        this.showTeacher = !this.showTeacher;      
+      }
       this.showStudent = true;      
     }
     console.log("student and teacher", this.showStudent, this.showTeacher);
