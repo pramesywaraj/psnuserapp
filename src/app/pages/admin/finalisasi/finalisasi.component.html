@@ -132,7 +132,7 @@
                 </div>
                 <div *ngFor="let data of getAllNotFinalLodging">
                   <mat-grid-tile><div class="table-text name">{{data?.accommodation?.name}}</div></mat-grid-tile>
-                  <mat-grid-tile><div class="table-text name">{{data?.accommodation?.startDate | date:'dd/MM/yyyy'}}</div></mat-grid-tile>
+                  <mat-grid-tile><div class="table-text name">{{data?.startDate | date:'dd/MM/yyyy'}}</div></mat-grid-tile>
                   <mat-grid-tile><div class="table-text name">{{data?.duration}}</div></mat-grid-tile>
                   <mat-grid-tile><div class="table-text lomba">{{data?.userType}}</div></mat-grid-tile>
                   <mat-grid-tile><div class="table-text lomba">{{data?.teacher?.name || data?.student?.name}}</div></mat-grid-tile>
