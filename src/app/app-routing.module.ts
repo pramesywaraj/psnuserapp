@@ -68,14 +68,14 @@ const routes: Routes = [
         path: 'daftarpenginapan',
         component: PenginapanComponent,
       },
-      // {
-      //   path: 'finalisasi',
-      //   component: FinalisasiComponent,
-      // },
-      // {
-      //   path: 'pembayaran',
-      //   component: PembayaranComponent,
-      // },
+      {
+        path: 'finalisasi',
+        component: FinalisasiComponent,
+      },
+      {
+        path: 'pembayaran',
+        component: PembayaranComponent,
+      },
       {
         path: 'edit',
         children:[

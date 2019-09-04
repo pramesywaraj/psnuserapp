@@ -206,9 +206,9 @@
                     </mat-form-field>
 
                     <mat-form-field>
-                      <input matInput [matDatepicker]="picker" placeholder="Choose a date"  formControlName="startDate">
+                      <input matInput [matDatepicker]="picker" [matDatepickerFilter]="filteringDate" placeholder="Tanggal check-in"  formControlName="startDate">
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                      <mat-datepicker #picker></mat-datepicker>
+                      <mat-datepicker [startAt]="startDateCalendar" #picker></mat-datepicker>
                     </mat-form-field>
 
                     <mat-form-field>

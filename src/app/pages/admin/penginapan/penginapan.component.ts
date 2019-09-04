@@ -14,6 +14,8 @@ import { DaftarguruService } from '../../../services/daftarguru.service';
 })
 export class PenginapanComponent implements OnInit {
 
+  startDateCalendar = new Date(2019, 10, 1);
+
   indexNumber: number;
   nameLodging: any;
   nameBooked: any;
@@ -97,6 +99,12 @@ export class PenginapanComponent implements OnInit {
   ngOnInit() {
     this.showStudent = false;
     this.showTeacher = false;
+  }
+
+  filteringDate = (d: Date): boolean => {
+    const month = d.getMonth();
+    console.log(month);
+    return month > 9;
   }
 
   changeType(val) {
