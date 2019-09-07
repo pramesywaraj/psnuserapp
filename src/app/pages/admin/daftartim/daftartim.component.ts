@@ -4,6 +4,7 @@ import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms'
 import { Subscription } from 'rxjs';
 import { DaftartimService } from 'src/app/services/daftartim.service';
 import { DaftarpesertaService } from '../../../services/daftarpeserta.service';
+import { DaftarlombaService } from '../../../services/daftarlomba.service';
 
 @Component({
   selector: 'app-daftartim',
@@ -29,13 +30,14 @@ export class DaftartimComponent implements OnInit {
 
   displayedColumns: string[] = ['indexNumber', 'name', 'contest', 'student', 'edit', 'delete'];
 
-  constructor(private formBuilder: FormBuilder, public DaftartimService: DaftartimService, public router: Router, public Daftarpeserta: DaftarpesertaService) { 
+  constructor(private formBuilder: FormBuilder, public DaftartimService: DaftartimService, public router: Router, public Daftarpeserta: DaftarpesertaService, public DaftarLomba: DaftarlombaService) { 
     const schoolId = JSON.parse(localStorage.getItem('schoolId'));
     let contest = 1;
     let student = 1;
     this.getAllTeamBySchoolId(schoolId, contest, student);
     this.getAvailStudent(schoolId);
-    this.dataLomba = JSON.parse(localStorage.getItem('dataLomba'));
+    this.getDaftarLomba();
+    // this.dataLomba = JSON.parse(localStorage.getItem('dataLomba'));
     // this.contest = dataLomba;
     this.daftarTeam = this.formBuilder.group(
       {
@@ -60,6 +62,19 @@ export class DaftartimComponent implements OnInit {
       }
     )
   }
+
+  getDaftarLomba(){
+    this.DaftarLomba.getAllDaftarLomba().subscribe(
+      (data) => {
+        this.dataLomba = data.contests;
+      },
+      err => {
+        console.log("err", err);
+        // do a function here
+      }
+    )
+  }
+
 
   getAvailStudent(id){
     this.Daftarpeserta.getAvailStudent(id).subscribe(

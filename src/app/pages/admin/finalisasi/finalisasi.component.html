@@ -47,7 +47,7 @@
                   <mat-grid-tile><div class="table-text-title">Nama tim</div></mat-grid-tile>
                   <mat-grid-tile><div class="table-text-title">Lomba yang diikuti</div></mat-grid-tile>
                   <mat-grid-tile><div class="table-text-title">Jumlah peserta dalam tim</div></mat-grid-tile>
-                  <mat-grid-tile><div class="table-text-title">Harga</div></mat-grid-tile>    
+                  <mat-grid-tile><div class="table-text-title">Harga Total</div></mat-grid-tile>    
                 </div>
                 <div *ngFor="let data of getAllUnpaidTeam">
                   <mat-grid-tile><div class="table-text name">{{data?.name}}</div></mat-grid-tile>
@@ -130,7 +130,7 @@
                   <mat-grid-tile><div class="table-text-title">Durasi Menginap (Hari)</div></mat-grid-tile>
                   <mat-grid-tile><div class="table-text-title">Status Pemesan</div></mat-grid-tile>
                   <mat-grid-tile><div class="table-text-title">Nama Pemesan</div></mat-grid-tile>
-                  <mat-grid-tile><div class="table-text-title">Harga</div></mat-grid-tile>    
+                  <mat-grid-tile><div class="table-text-title">Harga Total</div></mat-grid-tile>    
                 </div>
                 <div *ngFor="let data of getAllNotFinalLodging">
                   <mat-grid-tile><div class="table-text name">{{data?.accommodation?.name}}</div></mat-grid-tile>
