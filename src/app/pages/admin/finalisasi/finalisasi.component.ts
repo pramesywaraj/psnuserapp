@@ -123,21 +123,22 @@ export class FinalisasiComponent implements OnInit, OnDestroy {
         "school": this.schoolId
       }
 
-      if(this.checkBill()) {
-        this.FinalisasiService.generatePayment(type).subscribe(res => {
-          alert('Pendaftaran telah dikonfirmasi, mohon membayar pada VA (Virtual Account) yang telah tersedia pada halaman selanjutnya.');
-          this.router.navigate(['/admin/pembayaran']);
-        },
-          err => {
-            console.log(err);
-            alert('Gagal melakukan konfirmasi pendaftaran, harap hubungi Admin.');
-          }
-        );
-
-      } else {
-        alert('Tidak dapat melakukan finalisasi. Harap membayar tagihan sebelumnya terlebih dahulu pada VA yang tertera.');
+      this.FinalisasiService.generatePayment(type).subscribe(res => {
+        alert('Pendaftaran telah dikonfirmasi, mohon membayar pada VA (Virtual Account) yang telah tersedia pada halaman selanjutnya.');
         this.router.navigate(['/admin/pembayaran']);
-      }
+      },
+        err => {
+          console.log(err);
+          alert('Gagal melakukan konfirmasi pendaftaran, harap hubungi Admin.');
+        }
+      );
+
+      // if(this.checkBill()) {
+
+      // } else {
+      //   alert('Tidak dapat melakukan finalisasi. Harap membayar tagihan sebelumnya terlebih dahulu pada VA yang tertera.');
+      //   this.router.navigate(['/admin/pembayaran']);
+      // }
 
     }
   }

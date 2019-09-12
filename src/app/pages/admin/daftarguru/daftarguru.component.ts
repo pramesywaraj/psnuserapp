@@ -17,7 +17,7 @@ export class DaftarguruComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   phone = new FormControl('', [Validators.required]);
 
-  getAllGuru: [];
+  getAllGuru: any;
   daftarGuru: FormGroup;
 
   private subscription: Subscription;
@@ -45,6 +45,7 @@ export class DaftarguruComponent implements OnInit {
     this.DaftarguruService.getAllDaftarGuru(id).subscribe(
       (data) => {
         this.getAllGuru = data.teachers;
+        console.log(this.getAllGuru);
       },
       err => {
         console.log("err", err);

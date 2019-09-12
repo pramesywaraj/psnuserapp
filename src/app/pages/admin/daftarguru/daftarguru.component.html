@@ -63,7 +63,7 @@
                 <ng-container matColumnDef="delete">
                   <th mat-header-cell *matHeaderCellDef> Delete </th>
                   <td mat-cell *matCellDef="let data"> 
-                    <button class="delete-button" (click)="deleteItem(data._id)">
+                    <button class="delete-button" *ngIf="data.isPaid === false" (click)="deleteItem(data._id)">
                       <span>Hapus</span>
                     </button>
                   </td>
