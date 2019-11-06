@@ -166,3 +166,33 @@
     text-decoration: underline;
 }
 
+#slide-10{
+    background-color: #f4f7fb;
+    min-height: 100vh;
+    padding-bottom: 20vh;
+}
+
+#slide-10 p{
+    color: #0096f0;
+    font-size: 2em;
+    padding: 20px 0;
+}
+
+#slide-10 #sponsor-medpar-banner{
+    width: 75vw;
+    height: auto;
+}
+
+@media screen and (max-width: 500px){
+    #slide-10 p{
+        color: #0096f0;
+        font-size: 1.5em;
+        padding: 20px 0;
+    }
+    
+    #slide-10 #sponsor-medpar-banner{
+        width: 100vw;
+        height: auto;
+    }
+    
+}
